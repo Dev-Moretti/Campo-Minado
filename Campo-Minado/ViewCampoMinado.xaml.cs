@@ -19,9 +19,12 @@ namespace Campo_Minado
     /// </summary>
     public partial class ViewCampoMinado : Window
     {
+        private CampoMinado campoMinado;
+
         internal ViewCampoMinado(int campo, DIFICULDADE dificuldade)
         {
             InitializeComponent();
+            this.campoMinado = new CampoMinado(campo, dificuldade);
         }
 
 

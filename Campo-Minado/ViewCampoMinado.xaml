@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Campo_Minado"
         mc:Ignorable="d"
-        Title="Campo Minado" Height="450" Width="800">
+        Title="Campo Minado" 
+        Height="600" Width="600">
     
     <Grid>
         

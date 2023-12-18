@@ -13,3 +13,5 @@ C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.cs
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.csproj.CoreCompileInputs.cache
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.exe
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.pdb
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\ViewCampoMinado.g.cs
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\ViewCampoMinado.baml
