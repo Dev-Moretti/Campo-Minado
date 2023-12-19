@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\App.xaml
-2-1187495784
+3-1927049225
 
-10290040679
+111068743988
 13-38814620
-MainWindow.xaml;ViewCampoMinado.xaml;
+EndGame.xaml;MainWindow.xaml;ViewCampoMinado.xaml;
 
-False
+True
 
