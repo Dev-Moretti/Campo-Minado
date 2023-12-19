@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("land-mine.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("land%20mine%20teste.ico")]
 
 

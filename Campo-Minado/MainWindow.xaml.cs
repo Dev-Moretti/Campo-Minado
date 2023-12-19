@@ -49,10 +49,11 @@ namespace Campo_Minado
             dificuldade = (DIFICULDADE)CBDificuldade.SelectedIndex;
 
             ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade);
-
+            campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             campoMinado.Show();
 
             this.Close();
+
 
         }
     }

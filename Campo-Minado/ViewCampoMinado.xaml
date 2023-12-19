@@ -6,12 +6,58 @@
         xmlns:local="clr-namespace:Campo_Minado"
         mc:Ignorable="d"
         Title="Campo Minado" 
-        Height="600" Width="600">
-    
-    <Grid>
-        
-        
-        
+        x:Name="CampoMinado"
+        ResizeMode="NoResize"
+        >
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1"
+              Name="GCampoMinado">
+
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Height="30px"
+                Width="30px"
+                Background="#FF618DB3"
+                BorderBrush="#FF404040"
+                FontSize="20px"    
+                Content="B">
+            </Button>-->
+
+
+        </Grid>
+
     </Grid>
-    
+
 </Window>

@@ -13,9 +13,15 @@ namespace Campo_Minado
 
         public CampoMinado(int campo, DIFICULDADE dificuldade) 
         {
-        
+            Campo = campo;
+            Dificuldade = dificuldade;
+
         }
 
+        public int GetCampoX()
+        {
+            return Campo;
+        }
 
 
     }

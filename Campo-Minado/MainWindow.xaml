@@ -9,7 +9,10 @@
         MinWidth="380"
         MinHeight="380"
         MaxWidth="380"
-        MaxHeight="380">
+        MaxHeight="380"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        >
 
     <Grid>
 
@@ -43,7 +46,7 @@
                         HorizontalAlignment="Center"
                         FontSize="12"
                         Content="10 X 10"
-                        IsChecked="True">
+                        IsChecked="False">
                         
                     </RadioButton>
                 </Viewbox>

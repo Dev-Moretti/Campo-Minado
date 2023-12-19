@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\x64\Debug\
 Campo_Minado
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\App.xaml
 2-1187495784
 
-9-675298995
+9-871633629
 13-38814620
 MainWindow.xaml;ViewCampoMinado.xaml;
 
-False
+True
 
