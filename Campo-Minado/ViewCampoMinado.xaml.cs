@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -25,14 +26,18 @@ namespace Campo_Minado
         internal ViewCampoMinado(int campo, DIFICULDADE dificuldade)
         {
             InitializeComponent();
-            this.campoMinado = new CampoMinado(campo, dificuldade);
+
+            campoMinado = new CampoMinado(campo, dificuldade);
+            
+            campoMinado.GeraMatriz();
+
             CarregarCampoMinado();
         }
 
-        private void CarregarCampoMinado()
+        private Button CriarCelula(int linha, int coluna)
         {
             int tCelula = 0;
-            if(campoMinado.GetCampoX() == 10)
+            if (campoMinado.GetCampoX() == 10)
             {
                 tCelula = 50;
                 CampoMinado.Height = 580;
@@ -57,6 +62,22 @@ namespace Campo_Minado
                 CampoMinado.Width = 940;
             }
 
+            Button celula = new ButtonCelula(linha, coluna);
+            celula.Width = tCelula;
+            celula.Height = tCelula;
+            //celula.Background = Brushes.GreenYellow;
+            celula.BorderBrush = Brushes.Black;
+            //celula.Content = campoMinado.Get(linha,coluna);
+            celula.Content = "";
+            celula.FontSize = 14;
+            celula.SetValue(Grid.RowProperty, linha);
+            celula.SetValue(Grid.ColumnProperty, coluna);
+            celula.Click += BTCelula_Click;
+            return celula;
+        }
+
+        private void CarregarCampoMinado()
+        {
             GCampoMinado.ColumnDefinitions.Clear();
             GCampoMinado.RowDefinitions.Clear();
 
@@ -66,6 +87,7 @@ namespace Campo_Minado
                 campoColumn.Width = GridLength.Auto;
                 GCampoMinado.ColumnDefinitions.Add(campoColumn);
             }
+
             for (int i = 0; i < campoMinado.GetCampoX(); i++)
             {
                 RowDefinition campoRow = new RowDefinition();
@@ -73,7 +95,7 @@ namespace Campo_Minado
                 GCampoMinado.RowDefinitions.Add(campoRow);
             }
 
-            for (int i = 0; i < campoMinado.GetCampoX(); i++)
+            for (int linha = 0; linha < campoMinado.GetCampoX(); linha++)
             {
                 ColumnDefinition campoColumn = new ColumnDefinition();
                 campoColumn.Width = GridLength.Auto;
@@ -83,25 +105,30 @@ namespace Campo_Minado
                 campoRow.Height = GridLength.Auto;
                 GCampoMinado.RowDefinitions.Add(campoRow);
 
-                for (int j = 0; j < campoMinado.GetCampoX(); j++) 
+                for (int coluna = 0; coluna < campoMinado.GetCampoX(); coluna++) 
                 {
-                    Button BTcelula = new Button();
-                    BTcelula.Width = tCelula;
-                    BTcelula.Height = tCelula;
-                    BTcelula.Content = "B";
-                    BTcelula.FontSize = 14;
-                    BTcelula.SetValue(Grid.RowProperty, i);
-                    BTcelula.SetValue(Grid.ColumnProperty, j);
+                    Button BTcelula = CriarCelula(linha, coluna);
 
                     GCampoMinado.Children.Add(BTcelula);
                 }
-
-
             }
-
         }
 
+        private void BTCelula_Click(object sender, RoutedEventArgs e) 
+        {
+            ButtonCelula BTCel = (ButtonCelula)sender;
 
+            if (campoMinado.IsBomba(BTCel.GetLinha(), BTCel.GetColuna()))
+            {
+
+            }
+            else 
+            {
+            
+            }
+
+
+        }
 
 
     }

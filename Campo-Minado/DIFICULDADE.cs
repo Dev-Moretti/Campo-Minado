@@ -8,9 +8,9 @@ namespace Campo_Minado
 {
     enum DIFICULDADE
     {
-        SemGraca = 0,
-        Medio = 1,
+        Iniciante = 0,
+        Normal = 1,
         Dificil = 2,
-        Epico =3
+        Epico = 3
     }
 }

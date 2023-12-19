@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Campo_Minado"
         mc:Ignorable="d"
+        Width="300"
+        Height="300"
         Title="Campo Minado" 
         x:Name="CampoMinado"
         ResizeMode="NoResize"
@@ -54,7 +56,6 @@
                 FontSize="20px"    
                 Content="B">
             </Button>-->
-
 
         </Grid>
 

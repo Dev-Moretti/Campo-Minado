@@ -46,7 +46,7 @@
                         HorizontalAlignment="Center"
                         FontSize="12"
                         Content="10 X 10"
-                        IsChecked="False">
+                        IsChecked="True" Background="White">
                         
                     </RadioButton>
                 </Viewbox>
@@ -109,10 +109,10 @@
             Height="25px"
             FontSize="15">
             <ComboBoxItem
-                Content="Sem graça">
+                Content="Iniciante">
             </ComboBoxItem>
             <ComboBoxItem
-                Content="Normal">
+                Content="Normal" IsSelected="True">
             </ComboBoxItem>
             <ComboBoxItem
                 Content="Difícil">
