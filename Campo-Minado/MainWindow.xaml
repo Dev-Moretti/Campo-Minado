@@ -134,6 +134,7 @@
             Cursor="Hand"
             Content="INICIAR JOGO" 
             Click="BTIniciar_Click">
+            
 
         </Button>
 

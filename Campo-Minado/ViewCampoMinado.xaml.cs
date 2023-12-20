@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -10,6 +11,7 @@ namespace Campo_Minado
     public partial class ViewCampoMinado : Window
     {
         private CampoMinado campoMinado;
+        private ButtonCelula[,] Celulas;
 
         internal ViewCampoMinado(int campo, DIFICULDADE dificuldade)
         {
@@ -61,11 +63,15 @@ namespace Campo_Minado
             celula.SetValue(Grid.RowProperty, linha);
             celula.SetValue(Grid.ColumnProperty, coluna);
             celula.Click += BTCelula_Click;
+
+            Celulas[linha, coluna] = (ButtonCelula)celula;
+
             return celula;
         }
 
         private void CarregarCampoMinado()
         {
+            Celulas = new ButtonCelula[campoMinado.GetCampoX(), campoMinado.GetCampoX()];
             GCampoMinado.ColumnDefinitions.Clear();
             GCampoMinado.RowDefinitions.Clear();
 
@@ -102,23 +108,123 @@ namespace Campo_Minado
             }
         }
 
+        private void ViewBombasDerota()
+        {
+
+
+
+            
+            
+
+        }
+
+        private void VoltaInicio()
+        {
+            MainWindow menuIniciar = new MainWindow();
+            this.Close();
+            menuIniciar.Show();
+        }
+
+        private void MostrarCelula(int linha, int coluna)
+        {
+            if (!campoMinado.IsBomba(linha, coluna) && Celulas[linha, coluna].Content.ToString() == "")
+            {
+                Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+
+                if (campoMinado.TemAlgo(linha, coluna))
+                {
+                    Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                }
+                else
+                {
+                    Celulas[linha, coluna].Content = " ";
+                }
+
+                if (campoMinado.TemAlgo(linha, coluna))
+                {
+                    return;
+                }
+                else
+                {
+                    if (linha - 1 >= 0 && coluna - 1 >= 0)
+                    {
+                        MostrarCelula(linha - 1, coluna - 1);
+                    }
+
+                    if (linha - 1 >= 0 && coluna >= 0)
+                    {
+                        MostrarCelula(linha - 1, coluna);
+                    }
+
+                    if (linha - 1 >= 0 && coluna + 1 >= 0)
+                    {
+                        MostrarCelula(linha - 1, coluna + 1);
+                    }
+
+                    if (linha >= 0 && coluna - 1 >= 0)
+                    {
+                        MostrarCelula(linha , coluna - 1);
+                    }
+
+                    if (linha >= 0 && coluna >= 0)
+                    {
+                        MostrarCelula(linha , coluna);
+                    }
+
+                    if (linha >= 0 && coluna + 1 >= 0)
+                    {
+                        MostrarCelula(linha , coluna + 1);
+                    }
+
+                    if (linha + 1 >= 0 && coluna - 1 >= 0)
+                    {
+                        MostrarCelula(linha + 1, coluna - 1);
+                    }
+
+                    if (linha + 1 >= 0 && coluna >= 0)
+                    {
+                        MostrarCelula(linha + 1, coluna);
+                    }
+
+                    if (linha + 1 >= 0 && linha + 1 < 10 && coluna + 1 >= 0 )
+                    {
+                        MostrarCelula(linha + 1, coluna + 1);
+                    }
+
+
+                }
+            }
+        }
+
+
+
         private void BTCelula_Click(object sender, RoutedEventArgs e) 
         {
             ButtonCelula BTCel = (ButtonCelula)sender;
 
             if (campoMinado.IsBomba(BTCel.GetLinha(), BTCel.GetColuna()))
             {
-                EndGame endGame = new EndGame("Você pisou em uma bomba!!", 1);
-                endGame.Show();
+                EndGame endGame = new EndGame(1);
+                endGame.Owner = this;   
+                endGame.ShowDialog();
+
+                ViewBombasDerota();
+
+                VoltaInicio();
             }
             else 
             {
-
+                MostrarCelula(BTCel.GetLinha(), BTCel.GetColuna());
             }
 
             //EndGame endGame = new EndGame("Você encontrou todas as bombas!!", 2);
 
 
         }
+
+
+
+
+
     }
 }

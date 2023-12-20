@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Campo_Minado"
+        WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
         Title="EndGame" Height="250" Width="400"
         >
@@ -17,6 +18,7 @@
             Width="auto"
             Name="EndGameMSG"
             Content=""
+            FontSize="20"
             >
         </Label>
 
@@ -28,6 +30,7 @@
             Width="150px"
             Content="Inicio"
             FontSize="20"
+            Click="BTInicio"
             >
         </Button>
         

@@ -8,7 +8,7 @@ namespace Campo_Minado
         private DIFICULDADE Dificuldade;
         private int[,] Matriz;
 
-        public CampoMinado(int campo, DIFICULDADE dificuldade) 
+        public CampoMinado(int campo, DIFICULDADE dificuldade)
         {
             Campo = campo;
             Dificuldade = dificuldade;
@@ -21,14 +21,14 @@ namespace Campo_Minado
 
         public void GeraMatriz()
         {
-            Matriz = new int[Campo,Campo];
+            Matriz = new int[Campo, Campo];
 
             Random rand = new Random();
             int l = 0;
             int c = 0;
             int bombas = 0;
 
-            if(Dificuldade == DIFICULDADE.Iniciante)
+            if (Dificuldade == DIFICULDADE.Iniciante)
             {
                 bombas = Campo / 2;
             }
@@ -49,42 +49,42 @@ namespace Campo_Minado
             {
                 do
                 {
-                    l = rand.Next(0, Campo-1);
-                    c = rand.Next(0, Campo-1);
+                    l = rand.Next(0, Campo - 1);
+                    c = rand.Next(0, Campo - 1);
 
                 } while (Matriz[l, c] == -1);
-                
+
                 this.Matriz[l, c] = -1;
 
-                if (l -1 >= 0 && c -1 >= 0)
+                if (l - 1 >= 0 && c - 1 >= 0)
                 {
-                    if (Matriz[l -1, c -1] > -1)
+                    if (Matriz[l - 1, c - 1] > -1)
                     {
-                        Matriz[l -1, c -1]++;
+                        Matriz[l - 1, c - 1]++;
                     }
                 }
 
-                if(l -1 >= 0)
+                if (l - 1 >= 0)
                 {
-                    if (Matriz[l -1 ,c] > -1)
+                    if (Matriz[l - 1, c] > -1)
                     {
-                        Matriz[l -1, c]++;
+                        Matriz[l - 1, c]++;
                     }
                 }
 
-                if (l -1 >= 0 && c +1 < Campo)
+                if (l - 1 >= 0 && c + 1 < Campo)
                 {
-                    if (Matriz[l -1 , c +1] > -1)
+                    if (Matriz[l - 1, c + 1] > -1)
                     {
-                        Matriz[l -1, c +1]++;
+                        Matriz[l - 1, c + 1]++;
                     }
                 }
 
-                if (c - 1 >= 0) 
+                if (c - 1 >= 0)
                 {
-                    if (Matriz[l,c -1] > -1)
+                    if (Matriz[l, c - 1] > -1)
                     {
-                        Matriz[l, c -1]++;
+                        Matriz[l, c - 1]++;
                     }
                 }
 
@@ -97,27 +97,27 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l+1 < Campo && c-1 >= 0)
+                if (l + 1 < Campo && c - 1 >= 0)
                 {
-                    if (Matriz[l +1, c -1] > -1)
+                    if (Matriz[l + 1, c - 1] > -1)
                     {
-                        Matriz[l +1, c -1]++;
+                        Matriz[l + 1, c - 1]++;
                     }
                 }
 
-                if (l+1 < Campo) 
+                if (l + 1 < Campo)
                 {
-                    if (Matriz[l +1, c] > -1)
+                    if (Matriz[l + 1, c] > -1)
                     {
-                        Matriz[l +1, c]++;
+                        Matriz[l + 1, c]++;
                     }
                 }
 
-                if (l+1 < Campo && c+1 < Campo)
+                if (l + 1 < Campo && c + 1 < Campo)
                 {
-                    if (Matriz[l +1, c +1] > -1)
+                    if (Matriz[l + 1, c + 1] > -1)
                     {
-                        Matriz[l +1, c +1]++;
+                        Matriz[l + 1, c + 1]++;
                     }
                 }
             }
@@ -127,9 +127,15 @@ namespace Campo_Minado
         {
             return Matriz[linha, coluna];
         }
+
         public bool IsBomba(int linha, int coluna)
         {
             return Matriz[linha, coluna] == -1;
+        }
+
+        public bool TemAlgo(int linha, int coluna)
+        {
+            return Matriz[linha, coluna] != 0;
         }
     }
 }
