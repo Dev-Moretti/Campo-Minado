@@ -49,8 +49,8 @@ namespace Campo_Minado
             {
                 do
                 {
-                    l = rand.Next(0, Campo - 1);
-                    c = rand.Next(0, Campo - 1);
+                    l = rand.Next(0, Campo -1);
+                    c = rand.Next(0, Campo -1);
 
                 } while (Matriz[l, c] == -1);
 
@@ -72,7 +72,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l - 1 >= 0 && c + 1 < Campo)
+                if (l - 1 >= 0 && c + 1 < Campo - 1)
                 {
                     if (Matriz[l - 1, c + 1] > -1)
                     {
@@ -88,16 +88,15 @@ namespace Campo_Minado
                     }
                 }
 
-                if (c + 1 < Campo)
+                if (c + 1 < Campo - 1)
                 {
-
                     if (Matriz[l, c + 1] > -1)
                     {
                         Matriz[l, c + 1]++;
                     }
                 }
 
-                if (l + 1 < Campo && c - 1 >= 0)
+                if (l + 1 < Campo - 1 && c - 1 >= 0)
                 {
                     if (Matriz[l + 1, c - 1] > -1)
                     {
@@ -105,7 +104,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l + 1 < Campo)
+                if (l + 1 < Campo - 1)
                 {
                     if (Matriz[l + 1, c] > -1)
                     {
@@ -113,7 +112,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l + 1 < Campo && c + 1 < Campo)
+                if (l + 1 < Campo - 1 && c + 1 < Campo - 1)
                 {
                     if (Matriz[l + 1, c + 1] > -1)
                     {
@@ -130,7 +129,7 @@ namespace Campo_Minado
 
         public bool IsBomba(int linha, int coluna)
         {
-            return Matriz[linha, coluna] == -1;
+             return Matriz[linha, coluna] == -1;
         }
 
         public bool TemAlgo(int linha, int coluna)

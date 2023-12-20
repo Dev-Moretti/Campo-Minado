@@ -55,7 +55,7 @@ namespace Campo_Minado
             Button celula = new ButtonCelula(linha, coluna);
             celula.Width = tCelula;
             celula.Height = tCelula;
-            //celula.Background = Brushes.GreenYellow;
+            celula.Background = Brushes.SkyBlue;
             celula.BorderBrush = Brushes.Black;
             //celula.Content = campoMinado.Get(linha,coluna);
             celula.Content = "";
@@ -108,16 +108,6 @@ namespace Campo_Minado
             }
         }
 
-        private void ViewBombasDerota()
-        {
-
-
-
-            
-            
-
-        }
-
         private void VoltaInicio()
         {
             MainWindow menuIniciar = new MainWindow();
@@ -125,19 +115,40 @@ namespace Campo_Minado
             menuIniciar.Show();
         }
 
-        private void MostrarCelula(int linha, int coluna)
+        private void BTCelula_Click(object sender, RoutedEventArgs e) 
         {
-            if (!campoMinado.IsBomba(linha, coluna) && Celulas[linha, coluna].Content.ToString() == "")
+            ButtonCelula BTCel = (ButtonCelula)sender;
+
+            if (campoMinado.IsBomba(BTCel.GetLinha(), BTCel.GetColuna()))
             {
-                Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                EndGame endGame = new EndGame(1);
+                endGame.Owner = this;   
+
+                ViewBombasDerrota();
+                endGame.ShowDialog();
+
+                VoltaInicio();
+            }
+            else 
+            {
+                MostrarCelulas(BTCel.GetLinha(), BTCel.GetColuna());
+            }
+        }
+
+        private void MostrarCelulas(int linha, int coluna)
+        {
+            if (!campoMinado.IsBomba(linha, coluna) && Celulas[linha, coluna].Content == "")
+            {
 
                 if (campoMinado.TemAlgo(linha, coluna))
                 {
                     Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                    Celulas[linha, coluna].Background = Brushes.ForestGreen;
                 }
                 else
                 {
                     Celulas[linha, coluna].Content = " ";
+                    Celulas[linha, coluna].Background = Brushes.Gray;
                 }
 
                 if (campoMinado.TemAlgo(linha, coluna))
@@ -148,83 +159,72 @@ namespace Campo_Minado
                 {
                     if (linha - 1 >= 0 && coluna - 1 >= 0)
                     {
-                        MostrarCelula(linha - 1, coluna - 1);
+                        MostrarCelulas(linha - 1, coluna - 1);
                     }
 
-                    if (linha - 1 >= 0 && coluna >= 0)
+                    if (linha - 1 >= 0)
                     {
-                        MostrarCelula(linha - 1, coluna);
+                        MostrarCelulas(linha - 1, coluna);
                     }
 
-                    if (linha - 1 >= 0 && coluna + 1 >= 0)
+                    if (linha - 1 >= 0 && coluna + 1 < campoMinado.GetCampoX())
                     {
-                        MostrarCelula(linha - 1, coluna + 1);
+                        MostrarCelulas(linha - 1, coluna + 1);
                     }
 
-                    if (linha >= 0 && coluna - 1 >= 0)
+                    if (coluna - 1 >= 0)
                     {
-                        MostrarCelula(linha , coluna - 1);
+                        MostrarCelulas(linha , coluna - 1);
                     }
 
-                    if (linha >= 0 && coluna >= 0)
+                    if (coluna + 1 < campoMinado.GetCampoX())
                     {
-                        MostrarCelula(linha , coluna);
+                        MostrarCelulas(linha , coluna + 1);
                     }
 
-                    if (linha >= 0 && coluna + 1 >= 0)
+                    if (linha + 1 < campoMinado.GetCampoX() && coluna - 1 >= 0)
                     {
-                        MostrarCelula(linha , coluna + 1);
+                        MostrarCelulas(linha + 1, coluna - 1);
                     }
 
-                    if (linha + 1 >= 0 && coluna - 1 >= 0)
+                    if (linha + 1 < campoMinado.GetCampoX())
                     {
-                        MostrarCelula(linha + 1, coluna - 1);
+                        MostrarCelulas(linha + 1, coluna);
                     }
 
-                    if (linha + 1 >= 0 && coluna >= 0)
+                    if (linha + 1 < campoMinado.GetCampoX() && linha + 1 < campoMinado.GetCampoX())
                     {
-                        MostrarCelula(linha + 1, coluna);
+                        MostrarCelulas(linha + 1, coluna + 1);
                     }
-
-                    if (linha + 1 >= 0 && linha + 1 < 10 && coluna + 1 >= 0 )
-                    {
-                        MostrarCelula(linha + 1, coluna + 1);
-                    }
-
-
                 }
             }
         }
 
-
-
-        private void BTCelula_Click(object sender, RoutedEventArgs e) 
+        private void ViewBombasDerrota()
         {
-            ButtonCelula BTCel = (ButtonCelula)sender;
-
-            if (campoMinado.IsBomba(BTCel.GetLinha(), BTCel.GetColuna()))
+            for (int linha = 0; linha < campoMinado.GetCampoX(); linha++)
             {
-                EndGame endGame = new EndGame(1);
-                endGame.Owner = this;   
-                endGame.ShowDialog();
+                for(int coluna = 0; coluna < campoMinado.GetCampoX(); coluna++) 
+                {
+                    if(campoMinado.IsBomba(linha, coluna))
+                    {
+                        Celulas[linha, coluna].Content = "*";
+                        Celulas[linha, coluna].Background = Brushes.Red;
+                    }
+                    else if (campoMinado.TemAlgo(linha, coluna))
+                    {
+                        Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                        Celulas[linha, coluna].Background= Brushes.Gray;
+                    }
+                    else
+                    {
+                        Celulas[linha, coluna].Content = " ";
+                        Celulas[linha, coluna].Background = Brushes.Silver;
 
-                ViewBombasDerota();
-
-                VoltaInicio();
+                    }
+                }
             }
-            else 
-            {
-                MostrarCelula(BTCel.GetLinha(), BTCel.GetColuna());
-            }
-
-            //EndGame endGame = new EndGame("Você encontrou todas as bombas!!", 2);
-
-
         }
-
-
-
-
 
     }
 }
