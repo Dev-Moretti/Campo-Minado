@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Campo_Minado
 {
@@ -126,7 +121,6 @@ namespace Campo_Minado
                     }
                 }
             }
-
         }
 
         public int Get(int linha, int coluna)
@@ -137,6 +131,5 @@ namespace Campo_Minado
         {
             return Matriz[linha, coluna] == -1;
         }
-
     }
 }

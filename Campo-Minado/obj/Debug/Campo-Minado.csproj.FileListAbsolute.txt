@@ -15,3 +15,5 @@ C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.ex
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.pdb
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\ViewCampoMinado.g.cs
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\ViewCampoMinado.baml
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\EndGame.g.cs
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\EndGame.baml
