@@ -192,7 +192,7 @@ namespace Campo_Minado
                         MostrarCelulas(linha + 1, coluna);
                     }
 
-                    if (linha + 1 < campoMinado.GetCampoX() && linha + 1 < campoMinado.GetCampoX())
+                    if (linha + 1 < campoMinado.GetCampoX() && coluna + 1 < campoMinado.GetCampoX())
                     {
                         MostrarCelulas(linha + 1, coluna + 1);
                     }
