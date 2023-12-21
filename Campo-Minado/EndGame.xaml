@@ -6,19 +6,23 @@
         xmlns:local="clr-namespace:Campo_Minado"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
-        Title="EndGame" Height="250" Width="400"
+        Title="Fim de jogo" 
+        Height="200" 
+        Width="400"
+        ResizeMode="NoResize"
         >
 
     <Grid>
 
         <Label
-            VerticalAlignment="Center"
+            VerticalAlignment="Bottom"
             HorizontalAlignment="Center"
             Height="auto"
             Width="auto"
             Name="EndGameMSG"
             Content=""
-            FontSize="20"
+            FontSize="20" 
+            Margin="0,0,0,95"
             >
         </Label>
 
@@ -33,6 +37,6 @@
             Click="BTInicio"
             >
         </Button>
-        
+
     </Grid>
 </Window>

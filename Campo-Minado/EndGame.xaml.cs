@@ -1,5 +1,11 @@
-﻿using System.Reflection.Emit;
+﻿using System;
+using System.Reflection.Emit;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Campo_Minado
 {
@@ -14,9 +20,10 @@ namespace Campo_Minado
         public EndGame(int tipo)
         {
             InitializeComponent();
-
+            
             ViewMensagem(tipo);
         }
+
 
         private void ViewMensagem(int tipo)
         {
@@ -28,6 +35,27 @@ namespace Campo_Minado
             {
                 EndGameMSG.Content = msg2;
             }
+
+            //this.Top = (double)WindowStartupLocation.CenterOwner;
+            //this.Left = (double)WindowStartupLocation.CenterOwner;
+
+            //this.Show();
+            //this.WindowStartupLocation = WindowStartupLocation.Manual;
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    this.Left += 5;
+            //    this.Top += 5;
+            //    System.Threading.Thread.Sleep(50);
+            //    this.Left -= 5;
+            //    this.Top -= 5;
+            //    System.Threading.Thread.Sleep(50);
+            //    this.Left += 5;
+            //    this.Top += 5;
+            //    System.Threading.Thread.Sleep(50);
+            //    this.Left -= 5;
+            //    this.Top -= 5;
+            //}
         }
 
         private void BTInicio(object sender, RoutedEventArgs e)

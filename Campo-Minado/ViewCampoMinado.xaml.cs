@@ -1,7 +1,9 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Xml;
 
 namespace Campo_Minado
 {
@@ -27,27 +29,33 @@ namespace Campo_Minado
         private Button CriarCelula(int linha, int coluna)
         {
             int tCelula = 0;
+            int fonte = 0;
+
             if (campoMinado.GetCampoX() == 10)
             {
                 tCelula = 50;
+                fonte = 30;
                 CampoMinado.Height = 580;
                 CampoMinado.Width = 560;
             }
             if (campoMinado.GetCampoX() == 20)
             {
                 tCelula = 30;
+                fonte = 20;
                 CampoMinado.Height = 680;
                 CampoMinado.Width = 660;
             }
             if (campoMinado.GetCampoX() == 30)
             {
                 tCelula = 25;
+                fonte = 18;
                 CampoMinado.Height = 830;
                 CampoMinado.Width = 810;
             }
             if (campoMinado.GetCampoX() == 40)
             {
                 tCelula = 22;
+                fonte = 15;
                 CampoMinado.Height = 960;
                 CampoMinado.Width = 940;
             }
@@ -55,14 +63,15 @@ namespace Campo_Minado
             Button celula = new ButtonCelula(linha, coluna);
             celula.Width = tCelula;
             celula.Height = tCelula;
-            celula.Background = Brushes.SkyBlue;
+            celula.Background = Brushes.ForestGreen;
             celula.BorderBrush = Brushes.Black;
             //celula.Content = campoMinado.Get(linha,coluna);
             celula.Content = "";
-            celula.FontSize = 14;
+            celula.FontSize = fonte;
             celula.SetValue(Grid.RowProperty, linha);
             celula.SetValue(Grid.ColumnProperty, coluna);
             celula.Click += BTCelula_Click;
+            celula.MouseRightButtonDown += MouseRightButton;
 
             Celulas[linha, coluna] = (ButtonCelula)celula;
 
@@ -122,10 +131,12 @@ namespace Campo_Minado
             if (campoMinado.IsBomba(BTCel.GetLinha(), BTCel.GetColuna()))
             {
                 EndGame endGame = new EndGame(1);
-                endGame.Owner = this;   
+                
+                endGame.Owner = this;
+
+                endGame.ShowDialog();
 
                 ViewBombasDerrota();
-                endGame.ShowDialog();
 
                 VoltaInicio();
             }
@@ -143,7 +154,7 @@ namespace Campo_Minado
                 if (campoMinado.TemAlgo(linha, coluna))
                 {
                     Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
-                    Celulas[linha, coluna].Background = Brushes.ForestGreen;
+                    Celulas[linha, coluna].Background = Brushes.SkyBlue;
                 }
                 else
                 {
@@ -192,7 +203,7 @@ namespace Campo_Minado
                         MostrarCelulas(linha + 1, coluna);
                     }
 
-                    if (linha + 1 < campoMinado.GetCampoX() && linha + 1 < campoMinado.GetCampoX())
+                    if (linha + 1 < campoMinado.GetCampoX() && coluna + 1 < campoMinado.GetCampoX())
                     {
                         MostrarCelulas(linha + 1, coluna + 1);
                     }
@@ -220,11 +231,26 @@ namespace Campo_Minado
                     {
                         Celulas[linha, coluna].Content = " ";
                         Celulas[linha, coluna].Background = Brushes.Silver;
-
                     }
                 }
             }
         }
+
+        private void MouseRightButton(object sender, MouseButtonEventArgs e)
+        {
+            ButtonCelula celula = (ButtonCelula)sender;
+            if (celula.Content == "")
+            {
+                celula.Content = "P";
+                celula.Background = Brushes.Yellow;
+            }
+            else if (celula.Content == "P")
+            {
+                celula.Content = "";
+                celula.Background = Brushes.ForestGreen;
+            }
+        }
+
 
     }
 }

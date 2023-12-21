@@ -133,8 +133,8 @@
             BorderThickness="2px" 
             Cursor="Hand"
             Content="INICIAR JOGO" 
-            Click="BTIniciar_Click">
-            
+            Click="BTIniciar_Click"
+            >
         </Button>
 
 

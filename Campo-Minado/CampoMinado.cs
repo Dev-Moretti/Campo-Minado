@@ -72,7 +72,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l - 1 >= 0 && c + 1 < Campo - 1)
+                if (l - 1 >= 0 && c + 1 < Campo)
                 {
                     if (Matriz[l - 1, c + 1] > -1)
                     {
@@ -88,7 +88,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (c + 1 < Campo - 1)
+                if (c + 1 < Campo)
                 {
                     if (Matriz[l, c + 1] > -1)
                     {
@@ -96,7 +96,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l + 1 < Campo - 1 && c - 1 >= 0)
+                if (l + 1 < Campo && c - 1 >= 0)
                 {
                     if (Matriz[l + 1, c - 1] > -1)
                     {
@@ -104,7 +104,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l + 1 < Campo - 1)
+                if (l + 1 < Campo)
                 {
                     if (Matriz[l + 1, c] > -1)
                     {
@@ -112,7 +112,7 @@ namespace Campo_Minado
                     }
                 }
 
-                if (l + 1 < Campo - 1 && c + 1 < Campo - 1)
+                if (l + 1 < Campo && c + 1 < Campo)
                 {
                     if (Matriz[l + 1, c + 1] > -1)
                     {
