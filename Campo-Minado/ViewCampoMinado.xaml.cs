@@ -243,14 +243,31 @@ namespace Campo_Minado
             {
                 celula.Content = "P";
                 celula.Background = Brushes.Yellow;
+                campoMinado.addBandeira(celula.GetLinha(),celula.GetColuna());
+
+                if ( campoMinado.CheckBandeira() )
+                {
+                    EndGame endGame = new EndGame(1);
+
+                    endGame.Owner = this;
+
+                    endGame.ShowDialog();
+
+                    ViewBombasDerrota();
+
+                    VoltaInicio();
+
+                }
+
             }
             else if (celula.Content == "P")
             {
                 celula.Content = "";
                 celula.Background = Brushes.ForestGreen;
+                campoMinado.RemoveBandeira(celula.GetLinha(), celula.GetColuna());
+
             }
         }
-
 
     }
 }

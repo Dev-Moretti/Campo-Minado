@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Documents;
+using System.Xml;
 
 namespace Campo_Minado
 {
@@ -7,7 +12,8 @@ namespace Campo_Minado
         private int Campo;
         private DIFICULDADE Dificuldade;
         private int[,] Matriz;
-
+        private List<Point> Bandeiras;
+        private int Bombas;
         public CampoMinado(int campo, DIFICULDADE dificuldade)
         {
             Campo = campo;
@@ -26,26 +32,28 @@ namespace Campo_Minado
             Random rand = new Random();
             int l = 0;
             int c = 0;
-            int bombas = 0;
+            Bombas = 0;
 
             if (Dificuldade == DIFICULDADE.Iniciante)
             {
-                bombas = Campo / 2;
+                Bombas = Campo / 2;
             }
             else if (Dificuldade == DIFICULDADE.Normal)
             {
-                bombas = Campo;
+                Bombas = Campo;
             }
             else if (Dificuldade == DIFICULDADE.Dificil)
             {
-                bombas = Campo * 3;
+                Bombas = Campo * 3;
             }
             else if (Dificuldade == DIFICULDADE.Epico)
             {
-                bombas = Campo * 5;
+                Bombas = Campo * 5;
             }
 
-            for (int i = 0; i <= bombas; i++)
+            Bandeiras = new List<Point>();
+
+            for (int i = 0; i <= Bombas; i++)
             {
                 do
                 {
@@ -131,10 +139,51 @@ namespace Campo_Minado
         {
              return Matriz[linha, coluna] == -1;
         }
-
+               
         public bool TemAlgo(int linha, int coluna)
         {
             return Matriz[linha, coluna] != 0;
+        }
+
+        public void addBandeira(int linha, int coluna)
+        { 
+            Point p = new Point(linha, coluna);
+            Bandeiras.Add(p);
+        }
+
+        public void RemoveBandeira(int linha, int coluna)
+        {
+            Point p;
+            for (int i = 0; i < Bandeiras.Count; i++)
+            {
+                p = Bandeiras.ElementAt(i);
+                
+                if (p.X == linha && p.Y == coluna)
+                {
+                    Bandeiras.Remove(p);
+                }
+            }
+
+        }
+
+        public bool CheckBandeira()
+        {
+            if (Bandeiras.Count != Bombas)
+            {
+                return false;
+            }
+
+            Point p;
+            for(int i = 0; i < Bombas; i++)
+            {
+                p = Bandeiras.ElementAt(i);
+                if(!IsBomba((int)p.X, (int)p.Y))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
