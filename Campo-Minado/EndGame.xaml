@@ -7,8 +7,8 @@
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
         Title="Fim de jogo" 
-        Height="200" 
-        Width="400"
+        Height="180" 
+        Width="350"
         ResizeMode="NoResize"
         >
 
@@ -22,7 +22,7 @@
             Name="EndGameMSG"
             Content=""
             FontSize="20" 
-            Margin="0,0,0,95"
+            Margin="0,0,0,80"
             >
         </Label>
 
@@ -32,7 +32,7 @@
             Margin="15"
             Height="40px"
             Width="150px"
-            Content="Inicio"
+            Content="Início"
             FontSize="20"
             Click="BTInicio"
             >
