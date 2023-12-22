@@ -53,7 +53,7 @@ namespace Campo_Minado
 
             Bandeiras = new List<Point>();
 
-            for (int i = 0; i <= Bombas; i++)
+            for (int i = 0; i < Bombas; i++)
             {
                 do
                 {

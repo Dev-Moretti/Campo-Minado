@@ -15,7 +15,7 @@ namespace Campo_Minado
     public partial class EndGame : Window
     {
         private string msg1 = "Você pisou em uma bomba!!";
-        private string msg2 = "Você encotrou todas as bombas!!";
+        private string msg2 = "Você encontrou todas as bombas!!";
 
         public EndGame(int tipo)
         {

@@ -133,10 +133,10 @@ namespace Campo_Minado
                 EndGame endGame = new EndGame(1);
                 
                 endGame.Owner = this;
+                
+                ViewBombasDerrota();
 
                 endGame.ShowDialog();
-
-                ViewBombasDerrota();
 
                 VoltaInicio();
             }
@@ -243,17 +243,18 @@ namespace Campo_Minado
             {
                 celula.Content = "P";
                 celula.Background = Brushes.Yellow;
+                celula.BorderBrush = Brushes.Yellow;
                 campoMinado.addBandeira(celula.GetLinha(),celula.GetColuna());
 
                 if ( campoMinado.CheckBandeira() )
                 {
-                    EndGame endGame = new EndGame(1);
+                    EndGame endGame = new EndGame(2);
 
                     endGame.Owner = this;
 
-                    endGame.ShowDialog();
-
                     ViewBombasDerrota();
+
+                    endGame.ShowDialog();
 
                     VoltaInicio();
 
@@ -264,6 +265,7 @@ namespace Campo_Minado
             {
                 celula.Content = "";
                 celula.Background = Brushes.ForestGreen;
+                celula.BorderBrush= Brushes.Black;
                 campoMinado.RemoveBandeira(celula.GetLinha(), celula.GetColuna());
 
             }
