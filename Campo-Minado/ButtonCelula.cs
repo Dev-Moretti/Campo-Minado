@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Reflection;
+using System.Windows.Controls;
 
 namespace Campo_Minado
 {
@@ -7,6 +8,7 @@ namespace Campo_Minado
         private int Linha;
         private int Coluna;
 
+        
         public ButtonCelula(int linha, int coluna)
         {
             Linha = linha;
@@ -21,5 +23,6 @@ namespace Campo_Minado
         {
             return Coluna;
         }
+
     }
 }

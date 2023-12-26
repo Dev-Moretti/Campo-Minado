@@ -19,8 +19,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <Image Source="img\bomb.png" Margin="130,109,114,122" Grid.RowSpan="2"
+               Visibility="Collapsed"></Image>
+
         <Grid Grid.Row="1"
               Name="GCampoMinado">
+            <Image
+                Name="GImage">
+            </Image>
 
             <!--<Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>

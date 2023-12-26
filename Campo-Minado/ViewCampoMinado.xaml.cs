@@ -142,7 +142,6 @@ namespace Campo_Minado
 
                     VoltaInicio();
                 }
-
             }
             else
             {
@@ -152,6 +151,7 @@ namespace Campo_Minado
 
         private void MostrarCelulas(int linha, int coluna)
         {
+
             if (!campoMinado.IsBomba(linha, coluna) && Celulas[linha, coluna].Content == "")
             {
 
@@ -226,13 +226,13 @@ namespace Campo_Minado
                         if (Celulas[linha, coluna].Content == "P")
                         {
                             Celulas[linha, coluna].Background = Brushes.Yellow;
-                            Celulas[linha, coluna].Content = "*";
                         }
                         else
                         {
-                            Celulas[linha, coluna].Content = "*";
                             Celulas[linha, coluna].Background = Brushes.Red;
                         }
+
+                        Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\img\\bomb.png");
                     }
                     else if (campoMinado.TemAlgo(linha, coluna))
                     {

@@ -36,3 +36,7 @@ C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.csp
 C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.csproj.CoreCompileInputs.cache
 C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.exe
 C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.pdb
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Debug\System.Drawing.Common.dll
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Debug\System.Drawing.Common.pdb
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Debug\System.Drawing.Common.xml
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.csproj.CopyComplete
