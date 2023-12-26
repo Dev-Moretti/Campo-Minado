@@ -20,7 +20,7 @@ namespace Campo_Minado
             InitializeComponent();
 
             campoMinado = new CampoMinado(campo, dificuldade);
-            
+
             campoMinado.GeraMatriz();
 
             CarregarCampoMinado();
@@ -108,7 +108,7 @@ namespace Campo_Minado
                 campoRow.Height = GridLength.Auto;
                 GCampoMinado.RowDefinitions.Add(campoRow);
 
-                for (int coluna = 0; coluna < campoMinado.GetCampoX(); coluna++) 
+                for (int coluna = 0; coluna < campoMinado.GetCampoX(); coluna++)
                 {
                     Button BTcelula = CriarCelula(linha, coluna);
 
@@ -124,23 +124,27 @@ namespace Campo_Minado
             menuIniciar.Show();
         }
 
-        private void BTCelula_Click(object sender, RoutedEventArgs e) 
+        private void BTCelula_Click(object sender, RoutedEventArgs e)
         {
             ButtonCelula BTCel = (ButtonCelula)sender;
 
             if (campoMinado.IsBomba(BTCel.GetLinha(), BTCel.GetColuna()))
             {
-                EndGame endGame = new EndGame(1);
-                
-                endGame.Owner = this;
-                
-                ViewBombasDerrota();
+                if (BTCel.Content != "P")
+                {
+                    EndGame endGame = new EndGame(1);
 
-                endGame.ShowDialog();
+                    endGame.Owner = this;
 
-                VoltaInicio();
+                    ViewBombasDerrota();
+
+                    endGame.ShowDialog();
+
+                    VoltaInicio();
+                }
+
             }
-            else 
+            else
             {
                 MostrarCelulas(BTCel.GetLinha(), BTCel.GetColuna());
             }
@@ -185,12 +189,12 @@ namespace Campo_Minado
 
                     if (coluna - 1 >= 0)
                     {
-                        MostrarCelulas(linha , coluna - 1);
+                        MostrarCelulas(linha, coluna - 1);
                     }
 
                     if (coluna + 1 < campoMinado.GetCampoX())
                     {
-                        MostrarCelulas(linha , coluna + 1);
+                        MostrarCelulas(linha, coluna + 1);
                     }
 
                     if (linha + 1 < campoMinado.GetCampoX() && coluna - 1 >= 0)
@@ -215,17 +219,27 @@ namespace Campo_Minado
         {
             for (int linha = 0; linha < campoMinado.GetCampoX(); linha++)
             {
-                for(int coluna = 0; coluna < campoMinado.GetCampoX(); coluna++) 
+                for (int coluna = 0; coluna < campoMinado.GetCampoX(); coluna++)
                 {
-                    if(campoMinado.IsBomba(linha, coluna))
+                    if (campoMinado.IsBomba(linha, coluna))
                     {
-                        Celulas[linha, coluna].Content = "*";
-                        Celulas[linha, coluna].Background = Brushes.Red;
+                        if (Celulas[linha, coluna].Content == "P")
+                        {
+                            Celulas[linha, coluna].Background = Brushes.Yellow;
+                            Celulas[linha, coluna].Content = "*";
+
+                            //pimba pimba bolinha 
+                        }
+                        else
+                        {
+                            Celulas[linha, coluna].Content = "*";
+                            Celulas[linha, coluna].Background = Brushes.Red;
+                        }
                     }
                     else if (campoMinado.TemAlgo(linha, coluna))
                     {
                         Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
-                        Celulas[linha, coluna].Background= Brushes.Gray;
+                        Celulas[linha, coluna].Background = Brushes.Gray;
                     }
                     else
                     {
@@ -243,10 +257,9 @@ namespace Campo_Minado
             {
                 celula.Content = "P";
                 celula.Background = Brushes.Yellow;
-                celula.BorderBrush = Brushes.Yellow;
-                campoMinado.addBandeira(celula.GetLinha(),celula.GetColuna());
+                campoMinado.addBandeira(celula.GetLinha(), celula.GetColuna());
 
-                if ( campoMinado.CheckBandeira() )
+                if (campoMinado.CheckBandeira())
                 {
                     EndGame endGame = new EndGame(2);
 
@@ -265,7 +278,7 @@ namespace Campo_Minado
             {
                 celula.Content = "";
                 celula.Background = Brushes.ForestGreen;
-                celula.BorderBrush= Brushes.Black;
+                celula.BorderBrush = Brushes.Black;
                 campoMinado.RemoveBandeira(celula.GetLinha(), celula.GetColuna());
 
             }
