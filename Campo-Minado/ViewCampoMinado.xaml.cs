@@ -227,8 +227,6 @@ namespace Campo_Minado
                         {
                             Celulas[linha, coluna].Background = Brushes.Yellow;
                             Celulas[linha, coluna].Content = "*";
-
-                            //pimba pimba bolinha 
                         }
                         else
                         {
