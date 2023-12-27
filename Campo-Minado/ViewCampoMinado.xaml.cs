@@ -45,34 +45,32 @@ namespace Campo_Minado
                 alturaCelula = (SystemParameters.FullPrimaryScreenHeight - 100) / campoMinado.GetCampoX();
             }
 
-
-
-
             if (campoMinado.GetCampoX() == 10)
             {
-                //tCelula = 50;
                 fonte = 30;
+                //tCelula = 50;
                 //CampoMinado.Height = 580;
                 //CampoMinado.Width = 560;
             }
             if (campoMinado.GetCampoX() == 20)
             {
-                //tCelula = 30;
+                
                 fonte = 20;
+                //tCelula = 30;
                 //CampoMinado.Height = 680;
                 //CampoMinado.Width = 660;
             }
             if (campoMinado.GetCampoX() == 30)
             {
-                //tCelula = 25;
                 fonte = 18;
+                //tCelula = 25;
                 //.Height = 830;
                 //CampoMinado.Width = 810;
             }
             if (campoMinado.GetCampoX() == 40)
             {
-                //tCelula = 22;
                 fonte = 15;
+                //tCelula = 22;
                 //CampoMinado.Height = 960;
                 //CampoMinado.Width = 940;
             }
@@ -266,18 +264,12 @@ namespace Campo_Minado
                             Celulas[linha, coluna].Background = Brushes.Red;
                         }
 
-                        // Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\img\\bomb.png");
-
-                        string caminhoCompleto = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Figuras", "bomb.png");
-                        bool imagemExiste = System.IO.File.Exists(caminhoCompleto);
-                        FileAttributes atributos = System.IO.File.GetAttributes(caminhoCompleto);
-                        bool podeLer = atributos.HasFlag(FileAttributes.Archive);
-
+                        // Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\Figuras\\bomb.png");
 
                         Celulas[linha, coluna].Content = new Image
                         {
-                            //Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\img\\bomb1.png")),
-                            Source = new BitmapImage(new System.Uri(@"~/Figuras/bomb.png", UriKind.RelativeOrAbsolute)),
+                            //Source = new BitmapImage(new System.Uri(@"~/Figuras/bomb1.png", UriKind.RelativeOrAbsolute)),
+                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\Figuras\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill
