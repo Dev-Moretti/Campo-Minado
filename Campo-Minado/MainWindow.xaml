@@ -160,6 +160,7 @@
         </Label>
 
         <ComboBox
+            Name="CBTempo"
             Grid.Row="3"
             Margin="110,0,0,0"
             Width="180px"

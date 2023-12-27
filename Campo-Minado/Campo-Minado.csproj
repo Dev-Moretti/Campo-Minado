@@ -106,6 +106,7 @@
       <DependentUpon>EndGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enum\TEMPO.cs" />
+    <Compile Include="TempoBomba.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">
       <DependentUpon>ViewCampoMinado.xaml</DependentUpon>
     </Compile>

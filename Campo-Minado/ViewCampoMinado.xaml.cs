@@ -19,7 +19,7 @@ namespace Campo_Minado
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
 
-        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade)
+        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TEMPO tempoLimite)
         {
             InitializeComponent();
 

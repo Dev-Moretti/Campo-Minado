@@ -1,7 +1,6 @@
 ﻿
 namespace Campo_Minado
 {
-
     enum TEMPO
     {
         CincoMinut = 0,
