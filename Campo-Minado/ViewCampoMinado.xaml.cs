@@ -251,6 +251,7 @@ namespace Campo_Minado
         private void MouseRightButton(object sender, MouseButtonEventArgs e)
         {
             ButtonCelula celula = (ButtonCelula)sender;
+
             if (celula.Content == "")
             {
                 celula.Content = "P";
@@ -268,9 +269,7 @@ namespace Campo_Minado
                     endGame.ShowDialog();
 
                     VoltaInicio();
-
                 }
-
             }
             else if (celula.Content == "P")
             {
