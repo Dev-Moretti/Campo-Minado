@@ -1,4 +1,7 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,7 +19,7 @@ namespace Campo_Minado
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
 
-        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade)
+        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TEMPO tempoLimite)
         {
             InitializeComponent();
 
@@ -42,34 +45,32 @@ namespace Campo_Minado
                 alturaCelula = (SystemParameters.FullPrimaryScreenHeight - 100) / campoMinado.GetCampoX();
             }
 
-
-
-
             if (campoMinado.GetCampoX() == 10)
             {
-                //tCelula = 50;
                 fonte = 30;
+                //tCelula = 50;
                 //CampoMinado.Height = 580;
                 //CampoMinado.Width = 560;
             }
             if (campoMinado.GetCampoX() == 20)
             {
-                //tCelula = 30;
+                
                 fonte = 20;
+                //tCelula = 30;
                 //CampoMinado.Height = 680;
                 //CampoMinado.Width = 660;
             }
             if (campoMinado.GetCampoX() == 30)
             {
-                //tCelula = 25;
                 fonte = 18;
+                //tCelula = 25;
                 //.Height = 830;
                 //CampoMinado.Width = 810;
             }
             if (campoMinado.GetCampoX() == 40)
             {
-                //tCelula = 22;
                 fonte = 15;
+                //tCelula = 22;
                 //CampoMinado.Height = 960;
                 //CampoMinado.Width = 940;
             }
@@ -263,14 +264,15 @@ namespace Campo_Minado
                             Celulas[linha, coluna].Background = Brushes.Red;
                         }
 
-                        // Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\img\\bomb.png");
+                        // Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\Figuras\\bomb.png");
+
                         Celulas[linha, coluna].Content = new Image
                         {
-                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\img\\bomb.png")),
+                            //Source = new BitmapImage(new System.Uri(@"~/Figuras/bomb1.png", UriKind.RelativeOrAbsolute)),
+                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\Figuras\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill
-
                         };
 
                     }
@@ -311,7 +313,6 @@ namespace Campo_Minado
 
                     VoltaInicio();
                 }
-
             }
             else if (GetContent(celula.GetLinha(), celula.GetColuna()) == "P")
             {

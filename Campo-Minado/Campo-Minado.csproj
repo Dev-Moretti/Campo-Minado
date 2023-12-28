@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -105,6 +105,8 @@
     <Compile Include="EndGame.xaml.cs">
       <DependentUpon>EndGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enum\TEMPO.cs" />
+    <Compile Include="TempoBomba.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">
       <DependentUpon>ViewCampoMinado.xaml</DependentUpon>
     </Compile>
@@ -121,7 +123,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CampoMinado.cs" />
-    <Compile Include="DIFICULDADE.cs" />
+    <Compile Include="Enum\DIFICULDADE.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -174,11 +176,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\bomb.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\land-mine.ico" />
-    <Resource Include="img\land-mine.png" />
+    <Resource Include="Figuras\bomb.png" />
+    <Resource Include="Figuras\bomb1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

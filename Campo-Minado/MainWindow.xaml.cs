@@ -15,7 +15,9 @@ namespace Campo_Minado
         private void BTIniciar_Click(object sender, RoutedEventArgs e)
         {
             DIFICULDADE dificuldade;
+            TEMPO tempoLimite;
             int campo = 0;
+
             if (Jx10.IsChecked ?? false)
             {
                 campo = 10;
@@ -35,8 +37,11 @@ namespace Campo_Minado
 
             dificuldade = (DIFICULDADE)CBDificuldade.SelectedIndex;
 
-            ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade);
-            campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tempoLimite = (TEMPO)CBTempo.SelectedIndex;
+
+            ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade, tempoLimite);
+            
+            //campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             
             campoMinado.Show();
 
