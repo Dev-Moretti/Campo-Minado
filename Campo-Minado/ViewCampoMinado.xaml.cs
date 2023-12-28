@@ -19,7 +19,7 @@ namespace Campo_Minado
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
 
-        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TEMPO tempoLimite)
+        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TEMPO tempoLimite, string nomePlayer)
         {
             InitializeComponent();
 
@@ -95,6 +95,9 @@ namespace Campo_Minado
 
         private void CarregarCampoMinado()
         {
+            //Button btVoltar = new Button();
+            //btVoltar.
+
             Celulas = new ButtonCelula[campoMinado.GetCampoX(), campoMinado.GetCampoX()];
             GCampoMinado.ColumnDefinitions.Clear();
             GCampoMinado.RowDefinitions.Clear();

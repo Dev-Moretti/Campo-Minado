@@ -10,13 +10,16 @@ namespace Campo_Minado
         public MainWindow()
         {
             InitializeComponent();
+
         }
+
 
         private void BTIniciar_Click(object sender, RoutedEventArgs e)
         {
             DIFICULDADE dificuldade;
             TEMPO tempoLimite;
             int campo = 0;
+            string nomePlayer;
 
             if (Jx10.IsChecked ?? false)
             {
@@ -39,7 +42,9 @@ namespace Campo_Minado
 
             tempoLimite = (TEMPO)CBTempo.SelectedIndex;
 
-            ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade, tempoLimite);
+            nomePlayer = TBPlayerName.Text;
+
+            ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade, tempoLimite, nomePlayer);
             
             //campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             
