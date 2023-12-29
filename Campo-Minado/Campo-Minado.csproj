@@ -106,9 +106,13 @@
       <DependentUpon>EndGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enum\TEMPO.cs" />
+    <Compile Include="Scores.cs" />
     <Compile Include="TempoBomba.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">
       <DependentUpon>ViewCampoMinado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewScores.xaml.cs">
+      <DependentUpon>ViewScores.xaml</DependentUpon>
     </Compile>
     <Page Include="EndGame.xaml">
       <SubType>Designer</SubType>
@@ -129,6 +133,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ViewCampoMinado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewScores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

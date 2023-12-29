@@ -175,7 +175,7 @@ namespace Campo_Minado
 
                 if (campoMinado.TemAlgo(linha, coluna))
                 {
-                    Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                    Celulas[linha, coluna].Content = campoMinado.GetMatriz(linha, coluna);
                     Celulas[linha, coluna].Background = Brushes.SkyBlue;
                 }
                 else
@@ -283,7 +283,7 @@ namespace Campo_Minado
 
                     else if (campoMinado.TemAlgo(linha, coluna))
                     {
-                        Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                        Celulas[linha, coluna].Content = campoMinado.GetMatriz(linha, coluna);
                         Celulas[linha, coluna].Background = Brushes.Gray;
                     }
                     else

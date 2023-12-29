@@ -130,7 +130,7 @@ namespace Campo_Minado
             }
         }
 
-        public int Get(int linha, int coluna)
+        public int GetMatriz(int linha, int coluna)
         {
             return Matriz[linha, coluna];
         }
@@ -154,6 +154,7 @@ namespace Campo_Minado
         public void RemoveBandeira(int linha, int coluna)
         {
             Point p;
+
             for (int i = 0; i < Bandeiras.Count; i++)
             {
                 p = Bandeiras.ElementAt(i);
@@ -163,7 +164,6 @@ namespace Campo_Minado
                     Bandeiras.Remove(p);
                 }
             }
-
         }
 
         public bool CheckBandeira()
@@ -174,6 +174,7 @@ namespace Campo_Minado
             }
 
             Point p;
+
             for(int i = 0; i < Bombas; i++)
             {
                 p = Bandeiras.ElementAt(i);
