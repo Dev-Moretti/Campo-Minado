@@ -172,7 +172,6 @@ namespace Campo_Minado
 
             if (!campoMinado.IsBomba(linha, coluna) && GetContent(linha, coluna) == "")
             {
-
                 if (campoMinado.TemAlgo(linha, coluna))
                 {
                     Celulas[linha, coluna].Content = campoMinado.GetMatriz(linha, coluna);
@@ -233,7 +232,6 @@ namespace Campo_Minado
             }
         }
 
-
         private string GetContent(int linha, int coluna)
         {
             if (Celulas[linha, coluna].Content.GetType() == typeof(Image))
@@ -243,12 +241,8 @@ namespace Campo_Minado
             else
             {
                 return Celulas[linha, coluna].Content.ToString();
-
             }
-
-
         }
-
 
         private void ViewBombasDerrota()
         {
@@ -277,10 +271,7 @@ namespace Campo_Minado
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill
                         };
-
                     }
-
-
                     else if (campoMinado.TemAlgo(linha, coluna))
                     {
                         Celulas[linha, coluna].Content = campoMinado.GetMatriz(linha, coluna);
@@ -323,7 +314,6 @@ namespace Campo_Minado
                 celula.Background = Brushes.ForestGreen;
                 celula.BorderBrush = Brushes.Black;
                 campoMinado.RemoveBandeira(celula.GetLinha(), celula.GetColuna());
-
             }
         }
 

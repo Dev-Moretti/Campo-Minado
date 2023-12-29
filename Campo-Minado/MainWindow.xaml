@@ -208,13 +208,28 @@
             Name="BTIniciar"
             Grid.Row="5"
             Height="40px"
-            Width="300px"
+            Width="150px"
             FontSize="20px"
             Background="#FF48E058"
             BorderThickness="2px" 
             Cursor="Hand"
             Content="INICIAR JOGO" 
-            Click="BTIniciar_Click">
+            Click="BTIniciar_Click" 
+            Margin="210,13,40,14">
+        </Button>
+        
+        <Button
+            Name="BTScore"
+            Grid.Row="5"
+            Height="40px"
+            Width="150px"
+            FontSize="20px"
+            Background="#FF48E058"
+            BorderThickness="2px" 
+            Cursor="Hand"
+            Content="PONTUAÇÃO" 
+            Click="BTScore" 
+            Margin="40,13,210,14">
         </Button>
 
 
