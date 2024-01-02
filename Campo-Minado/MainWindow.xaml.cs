@@ -52,5 +52,10 @@ namespace Campo_Minado
 
             this.Close();
         }
+
+        private void BTScore_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

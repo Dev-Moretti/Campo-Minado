@@ -266,7 +266,7 @@ namespace Campo_Minado
                         Celulas[linha, coluna].Content = new Image
                         {
                             //Source = new BitmapImage(new System.Uri(@"~/Figuras/bomb1.png", UriKind.RelativeOrAbsolute)),
-                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\Figuras\\bomb1.png")),
+                            Source = new BitmapImage(new System.Uri("Resources\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill

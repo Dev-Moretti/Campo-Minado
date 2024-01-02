@@ -219,7 +219,7 @@
         </Button>
         
         <Button
-            Name="BTScore"
+            Name="BTScores"
             Grid.Row="5"
             Height="40px"
             Width="150px"
@@ -228,7 +228,7 @@
             BorderThickness="2px" 
             Cursor="Hand"
             Content="PONTUAÇÃO" 
-            Click="BTScore" 
+            Click="BTScore_Click" 
             Margin="40,13,210,14">
         </Button>
 

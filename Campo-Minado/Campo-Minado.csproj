@@ -184,8 +184,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Figuras\bomb.png" />
-    <Resource Include="Figuras\bomb1.png" />
+    <Resource Include="Resources\bomb1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
