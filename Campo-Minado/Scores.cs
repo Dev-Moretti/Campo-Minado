@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 
 namespace Campo_Minado
 {
@@ -45,7 +46,7 @@ namespace Campo_Minado
             }
             catch( Exception e )
             {
-
+                MessageBox.Show($"ERRO AO GRAVAR ARQUIVO: {e}", "ERRO!!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
