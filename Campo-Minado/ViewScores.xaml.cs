@@ -23,5 +23,27 @@ namespace Campo_Minado
         {
             InitializeComponent();
         }
+
+        public void CalculaPosicoesScore()
+        {
+            Scores score = new Scores();
+            List<string> listScore = new List<string>();
+            List<string> listTemp = new List<string>();
+            
+            listTemp = score.GetListScores();
+
+            foreach(string s in listScore)
+            {
+
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }
