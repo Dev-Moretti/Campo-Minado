@@ -9,8 +9,8 @@ namespace Campo_Minado
     internal class Scores
     {
         private string Nome;
-        private DateTime TempoLimite;
-        private DateTime TempoJogo;
+        private TimeSpan TempoBomba;
+        private TimeSpan TempoJogado;
         private DIFICULDADE Dificuldade;
         private int Campo;
         private List<string> listScores;
@@ -20,20 +20,22 @@ namespace Campo_Minado
         {
         }
 
-        public Scores(string nome, DateTime tempoLimite, DateTime tempoJogo, DIFICULDADE dificuldade, int campo)
+        public Scores(int campo , string nome, TimeSpan tempoBomba, DIFICULDADE dificuldade)
         {
-            Nome = nome;
-            TempoLimite = tempoLimite;
-            TempoJogo = tempoJogo;
-            Dificuldade = dificuldade;
             Campo = campo;
-            
-            GravaScore();
+            Nome = nome;
+            TempoBomba = tempoBomba;
+            Dificuldade = dificuldade;            
+        }
+
+        public void SetTimeJogado(TimeSpan tempoJogado)
+        {
+            TempoJogado = tempoJogado;
         }
 
         public void GravaScore()
         {
-            string score = $"{Nome},{TempoLimite.ToString("mm/ss")},{TempoJogo.ToString("mm/ss")},{Dificuldade.ToString()},{Campo.ToString()}--";
+            string score = $"{Nome},{TempoBomba.ToString("mm/ss")},{TempoJogado.ToString("mm/ss")},{Dificuldade.ToString()},{Campo.ToString()}--";
 
             try
             {

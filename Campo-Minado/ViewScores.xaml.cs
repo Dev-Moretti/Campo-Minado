@@ -34,7 +34,7 @@ namespace Campo_Minado
 
             foreach(string s in listScore)
             {
-
+                
             }
         }
 

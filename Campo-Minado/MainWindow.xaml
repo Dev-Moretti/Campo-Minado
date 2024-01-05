@@ -215,7 +215,9 @@
             Cursor="Hand"
             Content="INICIAR JOGO" 
             Click="BTIniciar_Click" 
-            Margin="210,13,40,14">
+            HorizontalAlignment="Right"
+            Margin="30,0">
+            
         </Button>
         
         <Button
@@ -229,7 +231,8 @@
             Cursor="Hand"
             Content="PONTUAÇÃO" 
             Click="BTScore_Click" 
-            Margin="40,13,210,14">
+            HorizontalAlignment="Left"
+            Margin="30,0">
         </Button>
 
 

@@ -8,7 +8,6 @@ namespace Campo_Minado
         private int Linha;
         private int Coluna;
 
-        
         public ButtonCelula(int linha, int coluna)
         {
             Linha = linha;

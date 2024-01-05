@@ -18,12 +18,15 @@ namespace Campo_Minado
     {
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
+        private Scores Score;
 
-        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TEMPO tempoLimite, string nomePlayer)
+        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba, string nomePlayer)
         {
             InitializeComponent();
 
-            campoMinado = new CampoMinado(campo, dificuldade);
+            campoMinado = new CampoMinado(campo, dificuldade, tempoBomba);
+
+            Score = new Scores(campo, nomePlayer, tempoBomba, dificuldade);
 
             campoMinado.GeraMatriz();
 
@@ -54,7 +57,6 @@ namespace Campo_Minado
             }
             if (campoMinado.GetCampoX() == 20)
             {
-
                 fonte = 20;
                 //tCelula = 30;
                 //CampoMinado.Height = 680;
@@ -319,5 +321,10 @@ namespace Campo_Minado
             }
         }
 
+
+        private void VisorTimer()
+        {
+
+        }
     }
 }

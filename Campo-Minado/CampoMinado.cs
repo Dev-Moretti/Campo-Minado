@@ -14,10 +14,13 @@ namespace Campo_Minado
         private int[,] Matriz;
         private List<Point> Bandeiras;
         private int Bombas;
-        public CampoMinado(int campo, DIFICULDADE dificuldade)
+        private TimeSpan TempoBomba;
+
+        public CampoMinado(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba)
         {
             Campo = campo;
             Dificuldade = dificuldade;
+            TempoBomba = tempoBomba;
         }
 
         public int GetCampoX()
@@ -186,5 +189,11 @@ namespace Campo_Minado
 
             return true;
         }
+
+        public TimeSpan GetTempoBomba()
+        {
+            return TempoBomba;
+        }
+
     }
 }

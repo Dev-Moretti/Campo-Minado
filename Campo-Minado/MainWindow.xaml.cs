@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace Campo_Minado
 {
@@ -18,6 +19,7 @@ namespace Campo_Minado
         {
             DIFICULDADE dificuldade;
             TEMPO tempoLimite;
+            TimeSpan tempoBomba;
             int campo = 0;
             string nomePlayer;
 
@@ -42,11 +44,38 @@ namespace Campo_Minado
 
             tempoLimite = (TEMPO)CBTempo.SelectedIndex;
 
+            if (tempoLimite == TEMPO.CincoMinut)
+            {
+                tempoBomba = TimeSpan.FromMinutes(60000 * 5);
+            }
+            else if (tempoLimite == TEMPO.QuatroMinut)
+            {
+                tempoBomba = TimeSpan.FromMinutes(60000 * 4);
+            }
+            else if (tempoLimite == TEMPO.TresMinut)
+            {
+                tempoBomba = TimeSpan.FromMinutes(60000 * 3);
+            }
+            else if (tempoLimite == TEMPO.DoisMinut)
+            {
+                tempoBomba = TimeSpan.FromMinutes(60000 * 2);
+            }
+            else if (tempoLimite == TEMPO.UmMinut)
+            {
+                tempoBomba = TimeSpan.FromMinutes(60000 * 1);
+            }
+            else 
+            {
+                tempoBomba = TimeSpan.FromMinutes(60000 * 4);
+            }
+
             nomePlayer = TBPlayerName.Text;
 
-            ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade, tempoLimite, nomePlayer);
-            
-            //campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ViewCampoMinado campoMinado = new ViewCampoMinado(campo, dificuldade, tempoBomba, nomePlayer);
+
+            campoMinado.Height = SystemParameters.MaximizedPrimaryScreenHeight;
+            campoMinado.Width = SystemParameters.MaximizedPrimaryScreenWidth;
+            campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             
             campoMinado.Show();
 
@@ -55,7 +84,9 @@ namespace Campo_Minado
 
         private void BTScore_Click(object sender, RoutedEventArgs e)
         {
-
+            ViewScores scores = new ViewScores();
+            scores.Show();
+            this.Close();
         }
     }
 }
