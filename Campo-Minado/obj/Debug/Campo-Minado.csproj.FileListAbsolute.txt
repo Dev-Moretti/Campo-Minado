@@ -44,3 +44,5 @@ C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\bin\Debug\System.Drawing.C
 C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\bin\Debug\System.Drawing.Common.pdb
 C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\bin\Debug\System.Drawing.Common.xml
 C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.csproj.CopyComplete
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\ViewScores.g.cs
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\ViewScores.baml

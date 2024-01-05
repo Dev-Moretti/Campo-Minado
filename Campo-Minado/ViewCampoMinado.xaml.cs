@@ -18,12 +18,15 @@ namespace Campo_Minado
     {
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
+        private Scores Score;
 
-        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TEMPO tempoLimite)
+        internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba, string nomePlayer)
         {
             InitializeComponent();
 
             campoMinado = new CampoMinado(campo, dificuldade);
+
+            Score = new Scores(campo, nomePlayer, tempoBomba, dificuldade);
 
             campoMinado.GeraMatriz();
 
@@ -54,7 +57,6 @@ namespace Campo_Minado
             }
             if (campoMinado.GetCampoX() == 20)
             {
-                
                 fonte = 20;
                 //tCelula = 30;
                 //CampoMinado.Height = 680;
@@ -95,6 +97,9 @@ namespace Campo_Minado
 
         private void CarregarCampoMinado()
         {
+            //Button btVoltar = new Button();
+            //btVoltar.
+
             Celulas = new ButtonCelula[campoMinado.GetCampoX(), campoMinado.GetCampoX()];
             GCampoMinado.ColumnDefinitions.Clear();
             GCampoMinado.RowDefinitions.Clear();
@@ -169,10 +174,9 @@ namespace Campo_Minado
 
             if (!campoMinado.IsBomba(linha, coluna) && GetContent(linha, coluna) == "")
             {
-
                 if (campoMinado.TemAlgo(linha, coluna))
                 {
-                    Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                    Celulas[linha, coluna].Content = campoMinado.GetMatriz(linha, coluna);
                     Celulas[linha, coluna].Background = Brushes.SkyBlue;
                 }
                 else
@@ -230,7 +234,6 @@ namespace Campo_Minado
             }
         }
 
-
         private string GetContent(int linha, int coluna)
         {
             if (Celulas[linha, coluna].Content.GetType() == typeof(Image))
@@ -240,12 +243,8 @@ namespace Campo_Minado
             else
             {
                 return Celulas[linha, coluna].Content.ToString();
-
             }
-
-
         }
-
 
         private void ViewBombasDerrota()
         {
@@ -264,23 +263,21 @@ namespace Campo_Minado
                             Celulas[linha, coluna].Background = Brushes.Red;
                         }
 
+                        //Celulas[linha, coluna].Content = new (Properties.Resources.bomb1);
+
                         // Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\Figuras\\bomb.png");
 
                         Celulas[linha, coluna].Content = new Image
                         {
-                            //Source = new BitmapImage(new System.Uri(@"~/Figuras/bomb1.png", UriKind.RelativeOrAbsolute)),
                             Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\Figuras\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill
                         };
-
                     }
-
-
                     else if (campoMinado.TemAlgo(linha, coluna))
                     {
-                        Celulas[linha, coluna].Content = campoMinado.Get(linha, coluna);
+                        Celulas[linha, coluna].Content = campoMinado.GetMatriz(linha, coluna);
                         Celulas[linha, coluna].Background = Brushes.Gray;
                     }
                     else
@@ -320,9 +317,12 @@ namespace Campo_Minado
                 celula.Background = Brushes.ForestGreen;
                 celula.BorderBrush = Brushes.Black;
                 campoMinado.RemoveBandeira(celula.GetLinha(), celula.GetColuna());
-
             }
         }
 
+        private void VisorTimer(TimeSpan tempoBomba)
+        {
+            GVisorTimer.Text = 
+        }
     }
 }

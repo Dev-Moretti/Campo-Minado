@@ -106,9 +106,13 @@
       <DependentUpon>EndGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enum\TEMPO.cs" />
-    <Compile Include="TempoBomba.cs" />
+    <Compile Include="Scores.cs" />
+    <Compile Include="Timer.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">
       <DependentUpon>ViewCampoMinado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewScores.xaml.cs">
+      <DependentUpon>ViewScores.xaml</DependentUpon>
     </Compile>
     <Page Include="EndGame.xaml">
       <SubType>Designer</SubType>
@@ -132,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewScores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -150,6 +158,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -176,8 +185,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Figuras\bomb.png" />
-    <Resource Include="Figuras\bomb1.png" />
+    <Resource Include="Resources\bomb1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

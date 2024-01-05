@@ -40,7 +40,6 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-
             <StackPanel
                 Grid.Row="1"
                 Grid.Column="0"
@@ -76,7 +75,6 @@
                     </RadioButton>
                 </Viewbox>
             </StackPanel>
-            
             
             <StackPanel
                 Grid.Row="1"
@@ -114,9 +112,7 @@
                 </Viewbox>
 
             </StackPanel>
-
-
-
+            
         </Grid>
 
         <Label
@@ -185,19 +181,58 @@
 
         </ComboBox>
 
+
+        <Label
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            FontSize="18"
+            Margin="20,0"
+            Content="Nome:">
+        </Label>
+        
+        <TextBox
+            Name="TBPlayerName"
+            Grid.Row="4"
+            Width="230"
+            Height="30"
+            Margin="0,0,-70,0"
+            Background="Silver"
+            OpacityMask="AliceBlue"
+            FontSize="18"
+            TextAlignment="Left"
+            Text=""
+            >
+        </TextBox>
+
         <Button
             Name="BTIniciar"
             Grid.Row="5"
             Height="40px"
-            Width="300px"
+            Width="150px"
             FontSize="20px"
             Background="#FF48E058"
             BorderThickness="2px" 
             Cursor="Hand"
             Content="INICIAR JOGO" 
-            Click="BTIniciar_Click"
-            IsEnabled="True"
-            >
+            Click="BTIniciar_Click" 
+            HorizontalAlignment="Right"
+            Margin="30,0">
+            
+        </Button>
+        
+        <Button
+            Name="BTScores"
+            Grid.Row="5"
+            Height="40px"
+            Width="150px"
+            FontSize="20px"
+            Background="#FF48E058"
+            BorderThickness="2px" 
+            Cursor="Hand"
+            Content="PONTUAÇÃO" 
+            Click="BTScore_Click" 
+            HorizontalAlignment="Left"
+            Margin="30,0">
         </Button>
 
 
