@@ -16,6 +16,7 @@ namespace Campo_Minado
     {
         private string msg1 = "Você pisou em uma bomba!!";
         private string msg2 = "Você encontrou todas as bombas!!";
+        private string msg3 = "O tempo acabou e as bombas explodiram!!!";
 
         public EndGame(int tipo)
         {
@@ -34,6 +35,10 @@ namespace Campo_Minado
             if (tipo == 2)
             {
                 EndGameMSG.Content = msg2;
+            }
+            if (tipo == 3)
+            {
+                EndGameMSG.Content = msg3;
             }
 
             //this.Top = (double)WindowStartupLocation.CenterOwner;

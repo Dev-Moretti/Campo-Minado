@@ -107,7 +107,6 @@
     </Compile>
     <Compile Include="Enum\TEMPO.cs" />
     <Compile Include="Scores.cs" />
-    <Compile Include="Timer.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">
       <DependentUpon>ViewCampoMinado.xaml</DependentUpon>
     </Compile>

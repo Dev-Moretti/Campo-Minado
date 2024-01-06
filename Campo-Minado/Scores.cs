@@ -13,19 +13,20 @@ namespace Campo_Minado
         private TimeSpan TempoJogado;
         private DIFICULDADE Dificuldade;
         private int Campo;
-        private List<string> listScores;
+        private List<string> listScores = new List<string>();
         private string FilePath = $"{System.Environment.CurrentDirectory.ToString()}\\Scores\\Score.txt";
 
         public Scores() 
         {
         }
 
-        public Scores(int campo , string nome, TimeSpan tempoBomba, DIFICULDADE dificuldade)
+        public Scores(string nome, TimeSpan tempoBomba, TimeSpan tempoJogado, DIFICULDADE dificuldade, int campo)
         {
             Campo = campo;
             Nome = nome;
             TempoBomba = tempoBomba;
-            Dificuldade = dificuldade;            
+            Dificuldade = dificuldade;
+            GravaScore();
         }
 
         public void SetTimeJogado(TimeSpan tempoJogado)
@@ -35,7 +36,7 @@ namespace Campo_Minado
 
         public void GravaScore()
         {
-            string score = $"{Nome},{TempoBomba.ToString("mm/ss")},{TempoJogado.ToString("mm/ss")},{Dificuldade.ToString()},{Campo.ToString()}--";
+            string score = $"{Nome},{TempoBomba.TotalMinutes / 60000},{TempoJogado.Minutes}:{TempoJogado.TotalSeconds},{Dificuldade.ToString()},{Campo.ToString()}--";
 
             try
             {
@@ -43,7 +44,7 @@ namespace Campo_Minado
                 {
                     listScores = File.ReadAllLines(FilePath).ToList();
                    
-                    if (listScores.Count > 0)
+                    if (listScores.Count >= 0)
                     {
                         listScores.Add(score);
                         File.WriteAllLines(FilePath, listScores);

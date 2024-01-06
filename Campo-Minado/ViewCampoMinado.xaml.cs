@@ -19,14 +19,11 @@ namespace Campo_Minado
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
         private Scores Score;
-
         internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba, string nomePlayer)
         {
             InitializeComponent();
 
-            campoMinado = new CampoMinado(campo, dificuldade);
-
-            Score = new Scores(campo, nomePlayer, tempoBomba, dificuldade);
+            campoMinado = new CampoMinado(campo, dificuldade, nomePlayer, tempoBomba);
 
             campoMinado.GeraMatriz();
 
@@ -302,6 +299,8 @@ namespace Campo_Minado
                 {
                     EndGame endGame = new EndGame(2);
 
+                    Score = new Scores(campoMinado.GetNomePlayer(), campoMinado.GetTempoBomba(), campoMinado.GetDificuldade(), campoMinado.GetCampoX()) ;
+
                     endGame.Owner = this;
 
                     ViewBombasDerrota();
@@ -322,7 +321,7 @@ namespace Campo_Minado
 
         private void VisorTimer(TimeSpan tempoBomba)
         {
-            GVisorTimer.Text = 
+            //GVisorTimer.Text = 
         }
     }
 }

@@ -14,11 +14,17 @@ namespace Campo_Minado
         private int[,] Matriz;
         private List<Point> Bandeiras;
         private int Bombas;
+        private string NomePlayer;
+        private TimeSpan TempoBomba;
+        private TimeSpan TempoJogou;
 
-        public CampoMinado(int campo, DIFICULDADE dificuldade)
+
+        public CampoMinado(int campo, DIFICULDADE dificuldade, string nomePlayer, TimeSpan tempoBomba)
         {
             Campo = campo;
             Dificuldade = dificuldade;
+            NomePlayer = nomePlayer;
+            TempoBomba = tempoBomba;
         }
 
         public int GetCampoX()
@@ -186,6 +192,31 @@ namespace Campo_Minado
             }
 
             return true;
+        }
+
+        public string GetNomePlayer()
+        {
+            return NomePlayer;
+        }
+
+        public TimeSpan GetTempoBomba()
+        {
+            return TempoBomba; 
+        }
+
+        public void SetTempoJogou(TimeSpan tempo)
+        {
+            TempoJogou = tempo;
+        }
+
+        public TimeSpan GetTempoJogou()
+        {
+            return TempoJogou;
+        }
+
+        public DIFICULDADE GetDificuldade()
+        {
+            return Dificuldade;
         }
 
     }

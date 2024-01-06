@@ -24,17 +24,18 @@ namespace Campo_Minado
             InitializeComponent();
         }
 
-        public void CalculaPosicoesScore()
+        public void PosicoesScore()
         {
             Scores score = new Scores();
             List<string> listScore = new List<string>();
-            List<string> listTemp = new List<string>();
+            List<string> listTemp = score.GetListScores();
             
-            listTemp = score.GetListScores();
-
-            foreach(string s in listScore)
+            foreach(string linha in listTemp)
             {
-                
+                string[] dados = linha.Split(',');
+
+
+
             }
         }
 
