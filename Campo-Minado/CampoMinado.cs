@@ -19,7 +19,6 @@ namespace Campo_Minado
         private TimeSpan TempoBomba;
         private long TempoJogou;
 
-
         public CampoMinado(int campo, DIFICULDADE dificuldade, string nomePlayer, TimeSpan tempoBomba)
         {
             Campo = campo;
@@ -230,7 +229,6 @@ namespace Campo_Minado
             listaScore.Add(score);
 
             scoreDao.GravarListScore(listaScore);
-
         }
 
         public TimeSpan GetTempoDecorrido()

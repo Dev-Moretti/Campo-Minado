@@ -11,9 +11,7 @@ namespace Campo_Minado
         public MainWindow()
         {
             InitializeComponent();
-
         }
-
 
         private void BTIniciar_Click(object sender, RoutedEventArgs e)
         {

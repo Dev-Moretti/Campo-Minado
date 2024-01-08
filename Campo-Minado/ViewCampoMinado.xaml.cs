@@ -356,10 +356,11 @@ namespace Campo_Minado
                     System.Threading.Thread.Sleep(100);
                 }
 
-                if (executandoTemporizador)
+                if (campoMinado.GetTempoDecorrido() <= TimeSpan.Zero)
                 {
                     Dispatcher.BeginInvoke((Action)(() => { FinalizaGame(3); }));
                 }
+
             });
 
         }

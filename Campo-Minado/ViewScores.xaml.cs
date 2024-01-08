@@ -19,6 +19,14 @@ namespace Campo_Minado
     /// </summary>
     public partial class ViewScores : Window
     {
+        public string Nome;
+        public TimeSpan TempoBomba;
+        public TimeSpan TempoJogado;
+        public DIFICULDADE Dificuldade;
+        public int Campo;
+        public int Bombas;
+
+
         public ViewScores()
         {
             InitializeComponent();
@@ -26,22 +34,23 @@ namespace Campo_Minado
 
         public void PosicoesScore()
         {
-            string nome;
-            TimeSpan tempoBomba;
-            TimeSpan tempoJogado;
-            DIFICULDADE dificuldade;
-            int campo;
-
+            ScoreDAO scoreDao = new ScoreDAO();
             Score score = new Score();
-            List<string> listScore = new List<string>();
-            List<string> listTemp = new List<string>();
-            
-            foreach (string str in listTemp)
+
+            List<Score> listScore = new List<Score>();
+
+            listScore = scoreDao.LerListaScore();
+
+            try
             {
-                
+                //scoreDao.
 
 
 
+
+            }
+            catch (Exception ex)
+            {
 
             }
 

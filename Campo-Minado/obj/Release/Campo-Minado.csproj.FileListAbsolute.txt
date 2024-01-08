@@ -40,3 +40,9 @@ C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Release\System.Drawin
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Release\System.Drawing.Common.pdb
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Release\System.Drawing.Common.xml
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Release\Campo-Minado.csproj.CopyComplete
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Release\imagem\bomb1.png
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Release\Newtonsoft.Json.dll
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\bin\Release\Newtonsoft.Json.xml
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Release\ViewScores.g.cs
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Release\Campo-Minado_Content.g.cs
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Release\ViewScores.baml
