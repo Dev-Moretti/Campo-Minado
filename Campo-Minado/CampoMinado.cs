@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Documents;
 using System.Xml;
@@ -16,7 +17,7 @@ namespace Campo_Minado
         private int Bombas;
         private string NomePlayer;
         private TimeSpan TempoBomba;
-        private TimeSpan TempoJogou;
+        private long TempoJogou;
 
 
         public CampoMinado(int campo, DIFICULDADE dificuldade, string nomePlayer, TimeSpan tempoBomba)
@@ -204,20 +205,40 @@ namespace Campo_Minado
             return TempoBomba; 
         }
 
-        public void SetTempoJogou(TimeSpan tempo)
-        {
-            TempoJogou = tempo;
-        }
-
-        public TimeSpan GetTempoJogou()
-        {
-            return TempoJogou;
-        }
-
         public DIFICULDADE GetDificuldade()
         {
             return Dificuldade;
         }
 
+        public void IniciarPartida()
+        {
+            TempoJogou = DateTime.Now.Ticks;
+        }
+
+        public void FinalizarPartida()
+        {
+            TempoJogou = DateTime.Now.Ticks - TempoJogou; 
+            
+            TimeSpan time = TimeSpan.FromTicks(TempoJogou);
+
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score> listaScore = scoreDao.LerListaScore();
+           
+            Score score = new Score(NomePlayer, TempoBomba, time, Dificuldade, Campo, Bombas);
+
+            listaScore.Add(score);
+
+            scoreDao.GravarListScore(listaScore);
+
+        }
+
+        public TimeSpan GetTempoDecorrido()
+        {
+            TimeSpan time = TimeSpan.FromTicks(DateTime.Now.Ticks - TempoJogou);
+
+            return TempoBomba - time;
+
+        }
     }
 }

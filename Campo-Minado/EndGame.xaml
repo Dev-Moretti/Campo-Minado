@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Campo_Minado"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Fim de jogo" 
         Height="180" 
-        Width="350"
+        Width="550"
         ResizeMode="NoResize"
         >
 
@@ -34,7 +34,8 @@
             Width="150px"
             Content="Início"
             FontSize="20"
-            Click="BTInicio"
+            Name="BTInicio"
+            Click="BTInicio_Click"
             >
         </Button>
 

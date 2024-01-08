@@ -26,17 +26,31 @@ namespace Campo_Minado
 
         public void PosicoesScore()
         {
-            Scores score = new Scores();
+            string nome;
+            TimeSpan tempoBomba;
+            TimeSpan tempoJogado;
+            DIFICULDADE dificuldade;
+            int campo;
+
+            Score score = new Score();
             List<string> listScore = new List<string>();
-            List<string> listTemp = score.GetListScores();
+            List<string> listTemp = new List<string>();
             
-            foreach(string linha in listTemp)
+            foreach (string str in listTemp)
             {
-                string[] dados = linha.Split(',');
+                
+
 
 
 
             }
+
+
+
+
+
+
+
         }
 
 

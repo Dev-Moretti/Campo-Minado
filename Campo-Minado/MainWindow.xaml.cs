@@ -46,27 +46,27 @@ namespace Campo_Minado
 
             if (tempoLimite == TEMPO.CincoMinut)
             {
-                tempoBomba = TimeSpan.FromMinutes(60000 * 5);
+                tempoBomba = TimeSpan.FromMinutes(5);
             }
             else if (tempoLimite == TEMPO.QuatroMinut)
             {
-                tempoBomba = TimeSpan.FromMinutes(60000 * 4);
+                tempoBomba = TimeSpan.FromMinutes(4);
             }
             else if (tempoLimite == TEMPO.TresMinut)
             {
-                tempoBomba = TimeSpan.FromMinutes(60000 * 3);
+                tempoBomba = TimeSpan.FromMinutes(3);
             }
             else if (tempoLimite == TEMPO.DoisMinut)
             {
-                tempoBomba = TimeSpan.FromMinutes(60000 * 2);
+                tempoBomba = TimeSpan.FromMinutes(2);
             }
             else if (tempoLimite == TEMPO.UmMinut)
             {
-                tempoBomba = TimeSpan.FromMinutes(60000 * 1);
+                tempoBomba = TimeSpan.FromMinutes(1);
             }
             else 
             {
-                tempoBomba = TimeSpan.FromMinutes(60000 * 4);
+                tempoBomba = TimeSpan.FromMinutes(4);
             }
 
             nomePlayer = TBPlayerName.Text;

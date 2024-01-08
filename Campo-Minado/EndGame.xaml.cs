@@ -17,12 +17,15 @@ namespace Campo_Minado
         private string msg1 = "Você pisou em uma bomba!!";
         private string msg2 = "Você encontrou todas as bombas!!";
         private string msg3 = "O tempo acabou e as bombas explodiram!!!";
+        private ViewCampoMinado view;
 
-        public EndGame(int tipo)
+        public EndGame(int tipo, ViewCampoMinado view)
         {
             InitializeComponent();
             
             ViewMensagem(tipo);
+
+            this.view = view;
         }
 
 
@@ -63,9 +66,18 @@ namespace Campo_Minado
             //}
         }
 
-        private void BTInicio(object sender, RoutedEventArgs e)
+        private void BTInicio_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            VoltaInicio();
         }
+
+        private void VoltaInicio()
+        {
+            MainWindow menuIniciar = new MainWindow();
+            this.Close();
+            menuIniciar.Show();
+            this.view.Close();
+        }
+
     }
 }

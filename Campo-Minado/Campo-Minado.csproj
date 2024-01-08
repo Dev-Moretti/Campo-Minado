@@ -77,6 +77,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -106,7 +109,8 @@
       <DependentUpon>EndGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enum\TEMPO.cs" />
-    <Compile Include="Scores.cs" />
+    <Compile Include="Score.cs" />
+    <Compile Include="ScoreDAO.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">
       <DependentUpon>ViewCampoMinado.xaml</DependentUpon>
     </Compile>
@@ -184,7 +188,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bomb1.png" />
+    <Content Include="imagem\bomb1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
