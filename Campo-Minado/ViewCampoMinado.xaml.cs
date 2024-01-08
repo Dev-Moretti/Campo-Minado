@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,23 +17,58 @@ namespace Campo_Minado
     /// <summary>
     /// Lógica interna para ViewCampoMinado.xaml
     /// </summary>
-    public partial class ViewCampoMinado : Window
+    public partial class ViewCampoMinado : Window, INotifyPropertyChanged
     {
         private CampoMinado campoMinado;
         private ButtonCelula[,] Celulas;
-        private Scores Score;
+
+        public Thread temporizador;
+
+        private bool executandoTemporizador;
+
+        private string TempoDecorrido_ = "";
+        public string TempoDecorrido
+        {
+            get
+            {
+                return TempoDecorrido_;
+            }
+            set
+            {
+                TempoDecorrido_ = value;
+                Dispatcher.BeginInvoke((Action)(() => { OnPropertyChanged(nameof(TempoDecorrido)); }));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
 
         internal ViewCampoMinado(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba, string nomePlayer)
         {
             InitializeComponent();
 
-            campoMinado = new CampoMinado(campo, dificuldade, tempoBomba);
-
-            Score = new Scores(campo, nomePlayer, tempoBomba, dificuldade);
+            campoMinado = new CampoMinado(campo, dificuldade, nomePlayer, tempoBomba);
 
             campoMinado.GeraMatriz();
 
             CarregarCampoMinado();
+
+            campoMinado.IniciarPartida();
+
+            //vinculação
+            this.DataContext = this;
+
+            IniciaTemporizador();
         }
 
         private Button CriarCelula(int linha, int coluna)
@@ -137,12 +175,12 @@ namespace Campo_Minado
             }
         }
 
-        private void VoltaInicio()
-        {
-            MainWindow menuIniciar = new MainWindow();
-            this.Close();
-            menuIniciar.Show();
-        }
+        //private void VoltaInicio()
+        //{
+        //    MainWindow menuIniciar = new MainWindow();
+        //    this.Close();
+        //    menuIniciar.Show();
+        //}
 
         private void BTCelula_Click(object sender, RoutedEventArgs e)
         {
@@ -152,15 +190,7 @@ namespace Campo_Minado
             {
                 if (GetContent(BTCel.GetLinha(), BTCel.GetColuna()) != "P")
                 {
-                    EndGame endGame = new EndGame(1);
-
-                    endGame.Owner = this;
-
-                    ViewBombasDerrota();
-
-                    endGame.ShowDialog();
-
-                    VoltaInicio();
+                    FinalizaGame(1);
                 }
             }
             else
@@ -263,14 +293,10 @@ namespace Campo_Minado
                             Celulas[linha, coluna].Background = Brushes.Red;
                         }
 
-
-                        //Celulas[linha, coluna].Content = new (Properties.Resources.bomb1);
-
-                        // Celulas[linha, coluna].Content = System.Drawing.Image.FromFile($"{System.Environment.CurrentDirectory.ToString()}"+"\\Figuras\\bomb.png");
-
                         Celulas[linha, coluna].Content = new Image
                         {
-                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\Figuras\\bomb1.png")),
+                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\imagem\\bomb1.png")),
+                            //Source = new BitmapImage(new System.Uri(".\\imagem\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill
@@ -297,19 +323,14 @@ namespace Campo_Minado
             {
                 celula.Content = "P";
                 celula.Background = Brushes.Yellow;
+
                 campoMinado.addBandeira(celula.GetLinha(), celula.GetColuna());
 
                 if (campoMinado.CheckBandeira())
                 {
-                    EndGame endGame = new EndGame(2);
+                    campoMinado.FinalizarPartida();
 
-                    endGame.Owner = this;
-
-                    ViewBombasDerrota();
-
-                    endGame.ShowDialog();
-
-                    VoltaInicio();
+                    FinalizaGame(2);
                 }
             }
             else if (GetContent(celula.GetLinha(), celula.GetColuna()) == "P")
@@ -321,10 +342,37 @@ namespace Campo_Minado
             }
         }
 
-
-        private void VisorTimer()
+        public void IniciaTemporizador()
         {
+            executandoTemporizador = true;
 
+            Task t = Task.Run(() =>
+            {
+                this.temporizador = Thread.CurrentThread;
+
+                while (campoMinado.GetTempoDecorrido() > TimeSpan.Zero && executandoTemporizador)
+                {
+                    this.TempoDecorrido = campoMinado.GetTempoDecorrido().ToString("mm':'ss");
+                    System.Threading.Thread.Sleep(100);
+                }
+
+                if (executandoTemporizador)
+                {
+                    Dispatcher.BeginInvoke((Action)(() => { FinalizaGame(3); }));
+                }
+            });
+
+        }
+
+        private void FinalizaGame(int num)
+        {
+            executandoTemporizador = false;
+
+            EndGame endGame = new EndGame(num, this);
+
+            ViewBombasDerrota();
+
+            endGame.ShowDialog();
         }
     }
 }

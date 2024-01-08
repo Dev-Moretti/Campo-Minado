@@ -1,7 +1,7 @@
 ﻿
 namespace Campo_Minado
 {
-    enum DIFICULDADE
+    public enum DIFICULDADE
     {
         Iniciante = 0,
         Normal = 1,

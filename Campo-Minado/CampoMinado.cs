@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Documents;
 using System.Xml;
@@ -14,12 +15,16 @@ namespace Campo_Minado
         private int[,] Matriz;
         private List<Point> Bandeiras;
         private int Bombas;
+        private string NomePlayer;
         private TimeSpan TempoBomba;
+        private long TempoJogou;
 
-        public CampoMinado(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba)
+
+        public CampoMinado(int campo, DIFICULDADE dificuldade, string nomePlayer, TimeSpan tempoBomba)
         {
             Campo = campo;
             Dificuldade = dificuldade;
+            NomePlayer = nomePlayer;
             TempoBomba = tempoBomba;
         }
 
@@ -190,10 +195,50 @@ namespace Campo_Minado
             return true;
         }
 
-        public TimeSpan GetTempoBomba()
+        public string GetNomePlayer()
         {
-            return TempoBomba;
+            return NomePlayer;
         }
 
+        public TimeSpan GetTempoBomba()
+        {
+            return TempoBomba; 
+        }
+
+        public DIFICULDADE GetDificuldade()
+        {
+            return Dificuldade;
+        }
+
+        public void IniciarPartida()
+        {
+            TempoJogou = DateTime.Now.Ticks;
+        }
+
+        public void FinalizarPartida()
+        {
+            TempoJogou = DateTime.Now.Ticks - TempoJogou; 
+            
+            TimeSpan time = TimeSpan.FromTicks(TempoJogou);
+
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score> listaScore = scoreDao.LerListaScore();
+           
+            Score score = new Score(NomePlayer, TempoBomba, time, Dificuldade, Campo, Bombas);
+
+            listaScore.Add(score);
+
+            scoreDao.GravarListScore(listaScore);
+
+        }
+
+        public TimeSpan GetTempoDecorrido()
+        {
+            TimeSpan time = TimeSpan.FromTicks(DateTime.Now.Ticks - TempoJogou);
+
+            return TempoBomba - time;
+
+        }
     }
 }
