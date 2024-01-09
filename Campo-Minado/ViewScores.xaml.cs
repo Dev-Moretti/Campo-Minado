@@ -62,12 +62,12 @@ namespace Campo_Minado
 
         }
 
+        private void BTVoltar1_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
 
-
-
-
-
-
-
+        }
     }
 }

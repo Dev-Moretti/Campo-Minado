@@ -43,27 +43,6 @@ namespace Campo_Minado
             {
                 EndGameMSG.Content = msg3;
             }
-
-            //this.Top = (double)WindowStartupLocation.CenterOwner;
-            //this.Left = (double)WindowStartupLocation.CenterOwner;
-
-            //this.Show();
-            //this.WindowStartupLocation = WindowStartupLocation.Manual;
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    this.Left += 5;
-            //    this.Top += 5;
-            //    System.Threading.Thread.Sleep(50);
-            //    this.Left -= 5;
-            //    this.Top -= 5;
-            //    System.Threading.Thread.Sleep(50);
-            //    this.Left += 5;
-            //    this.Top += 5;
-            //    System.Threading.Thread.Sleep(50);
-            //    this.Left -= 5;
-            //    this.Top -= 5;
-            //}
         }
 
         private void BTInicio_Click(object sender, RoutedEventArgs e)
@@ -74,8 +53,11 @@ namespace Campo_Minado
         private void VoltaInicio()
         {
             MainWindow menuIniciar = new MainWindow();
+
             this.Close();
+
             menuIniciar.Show();
+
             this.view.Close();
         }
 

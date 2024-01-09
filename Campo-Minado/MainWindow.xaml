@@ -197,7 +197,7 @@
             OpacityMask="AliceBlue"
             FontSize="18"
             TextAlignment="Left"
-            Text=""
+            Text="Player 1"
             >
         </TextBox>
 

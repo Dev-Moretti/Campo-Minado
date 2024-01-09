@@ -28,7 +28,8 @@
                 FontSize="16"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
-                Margin="10,10">
+                Margin="10,10"
+                Name="BTVoltar1" Click="BTVoltar1_Click">
             
         </Button>
     </Grid>
