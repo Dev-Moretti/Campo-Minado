@@ -175,13 +175,6 @@ namespace Campo_Minado
             }
         }
 
-        //private void VoltaInicio()
-        //{
-        //    MainWindow menuIniciar = new MainWindow();
-        //    this.Close();
-        //    menuIniciar.Show();
-        //}
-
         private void BTCelula_Click(object sender, RoutedEventArgs e)
         {
             ButtonCelula BTCel = (ButtonCelula)sender;
@@ -374,6 +367,11 @@ namespace Campo_Minado
             ViewBombasDerrota();
 
             endGame.ShowDialog();
+        }
+
+        private void BTVoltar2_Click(object sender, RoutedEventArgs e)
+        {
+            FinalizaGame(4);
         }
     }
 }

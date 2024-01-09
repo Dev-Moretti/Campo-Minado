@@ -29,7 +29,8 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Margin="10,10"
-                Name="BTVoltar1" Click="BTVoltar1_Click">
+                Name="BTVoltar1" 
+                Click="BTVoltar1_Click">
             
         </Button>
     </Grid>

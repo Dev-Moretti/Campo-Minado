@@ -14,9 +14,10 @@ namespace Campo_Minado
     /// </summary>
     public partial class EndGame : Window
     {
-        private string msg1 = "Você pisou em uma bomba!!";
-        private string msg2 = "Você encontrou todas as bombas!!";
-        private string msg3 = "O tempo acabou e as bombas explodiram!!!";
+        private string msg1 = "Você pisou em uma bomba!";
+        private string msg2 = "Você encontrou todas as bombas!";
+        private string msg3 = "O tempo acabou e as bombas explodiram!";
+        private string msg4 = "Partida abortada!";
         private ViewCampoMinado view;
 
         public EndGame(int tipo, ViewCampoMinado view)
@@ -42,6 +43,10 @@ namespace Campo_Minado
             if (tipo == 3)
             {
                 EndGameMSG.Content = msg3;
+            }
+            if (tipo == 4)
+            {
+                EndGameMSG.Content = msg4;
             }
         }
 
