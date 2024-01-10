@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,35 +31,29 @@ namespace Campo_Minado
         public ViewScores()
         {
             InitializeComponent();
+            PosicoesScore();
         }
 
         public void PosicoesScore()
         {
-            ScoreDAO scoreDao = new ScoreDAO();
-            Score score = new Score();
-
-            List<Score> listScore = new List<Score>();
-
-            listScore = scoreDao.LerListaScore();
-
             try
             {
-                //scoreDao.
+                ScoreDAO scoreDao = new ScoreDAO();
 
+                List<Score> listScore = scoreDao.LerListaScore();
 
-
-
+                foreach (Score pontos in listScore)
+                {
+                    GScores.Items.Add(pontos);
+                }
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"Erro {ex}", "Erro",MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
+                MainWindow main = new MainWindow();
+                main.Show();
             }
-
-
-
-
-
-
 
         }
 

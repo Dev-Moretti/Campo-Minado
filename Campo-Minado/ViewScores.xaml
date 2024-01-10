@@ -6,17 +6,14 @@
         xmlns:local="clr-namespace:Campo_Minado"
         mc:Ignorable="d"
         Title="PONTUAÇÃO" 
-        Height="900"
-        Width="1200"
+        Height="600"
+        Width="900"
         WindowStartupLocation="CenterScreen">
 
 
     <Grid>
-
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
@@ -103,7 +100,7 @@
                       VerticalAlignment="Top"
                       Margin="2,2,2,2"
                       FontSize="12">
-                
+
                 <StackPanel Margin="2,2,2,2"
                             Cursor="Hand">
 
@@ -150,34 +147,77 @@
             </GroupBox>
 
             <Button Grid.Column="4"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Height="40"
-                    Width="80"
-                    FontSize="18"
+                    Height="30"
+                    Width="75"
+                    FontSize="16"
                     Background="#FF6DBAEC"
                     Content="LISTAR"
-                    Margin="40,35,0,0"
+                    Margin="10,0,0,0"
                     Name="BTListar"
                     Click="BTListar_Click"
                     Cursor="Hand">
             </Button>
 
             <Button Grid.Column="4"
-                    Height="40"
-                    Width="80"
+                    Height="30"
+                    Width="75"
                     Content="VOLTAR"
-                    FontSize="18"
+                    FontSize="16"
                     Background="Tomato"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Margin="0,35,22,0"
+                    VerticalAlignment="Center"
+                    Margin="0,0,5,0"
                     Name="BTVoltar" 
                     Click="BTVoltar_Click" 
                     Cursor="Hand">
             </Button>
 
         </Grid>
+
+        <DataGrid Name="GScores"
+                  Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  FontSize="16"
+                  Margin="5,0,5,0">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Jogador"
+                                    Binding="{Binding Nome}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Tempo do Pavio"
+                                    Binding="{Binding TempoBomba}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Tempo Jogado"
+                                    Binding="{Binding TempoJogado}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Dificuldade"
+                                    Binding="{Binding Dificuldade}"
+                                    Width="0.6*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Campo"
+                                    Binding="{Binding Campo}"
+                                    Width="0.5*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Bombas"
+                                    Binding="{Binding Bombas}"
+                                    Width="0.5*">
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
 
 
 

@@ -30,12 +30,5 @@ namespace Campo_Minado
             Bombas = quantidadeBombas;
         }
 
-
-
-        public List<Score> OrganizaLista(List<Score> list)
-        {
-            return list;
-        }
-
     }
 }

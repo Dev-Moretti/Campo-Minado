@@ -1,0 +1,37 @@
+        <DataGrid Name="GScores"
+                  Grid.Row="1"
+                  Margin="5,0"
+                  VerticalAlignment="Top"
+                  >
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome"
+                                    Binding="{Binding Nome}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Tempo Limite"
+                                    Binding="{Binding TempoBomba}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Tempo Jodago"
+                                    Binding="{Binding TempoJogado}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Dificuldade"
+                                    Binding="{Binding Dificuldade}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Campo"
+                                    Binding="{Binding Campo}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Bombas"
+                                    Binding="{Binding Bombas}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                                    
+            </DataGrid.Columns>
+            
+            
+            
+        </DataGrid>
