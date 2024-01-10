@@ -31,30 +31,22 @@ namespace Campo_Minado
         public ViewScores()
         {
             InitializeComponent();
-            PosicoesScore();
         }
 
-        public void PosicoesScore()
+        private void ExibeScoreOrganizado(List<Score> listScore)
         {
-            try
+        }
+
+        private void ExibeScoreSimples()
+        {
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score>listScore = scoreDao.LerListaScore();
+
+            foreach (Score pontos in listScore)
             {
-                ScoreDAO scoreDao = new ScoreDAO();
-
-                List<Score> listScore = scoreDao.LerListaScore();
-
-                foreach (Score pontos in listScore)
-                {
-                    GScores.Items.Add(pontos);
-                }
+                GScores.Items.Add(pontos);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro {ex}", "Erro",MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
-                MainWindow main = new MainWindow();
-                main.Show();
-            }
-
         }
 
         private void BTVoltar_Click(object sender, RoutedEventArgs e)
@@ -62,12 +54,12 @@ namespace Campo_Minado
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
-
         }
 
         private void BTListar_Click(object sender, RoutedEventArgs e)
         {
-
+            ExibeScoreSimples();
         }
+
     }
 }

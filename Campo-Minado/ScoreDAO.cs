@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
 
 
 
@@ -32,6 +33,8 @@ namespace Campo_Minado
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Erro {ex}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return false;
             }
             return true;
@@ -45,6 +48,8 @@ namespace Campo_Minado
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Erro {ex}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return new List<Score>();
             }
         }
