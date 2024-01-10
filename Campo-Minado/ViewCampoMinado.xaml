@@ -49,6 +49,7 @@
                 Height="30"
                 Width="70"
                 Content="VOLTAR"
+                Background="Tomato"
                 FontSize="16"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
