@@ -43,6 +43,8 @@ namespace Campo_Minado
 
             List<Score>listScore = scoreDao.LerListaScore();
 
+            GScores.Items.Clear();
+
             foreach (Score pontos in listScore)
             {
                 GScores.Items.Add(pontos);

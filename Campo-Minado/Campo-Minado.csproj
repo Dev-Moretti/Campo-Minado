@@ -109,6 +109,8 @@
       <DependentUpon>EndGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enum\TEMPO.cs" />
+    <Compile Include="MenuConfig.cs" />
+    <Compile Include="MenuConfigDAO.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="ScoreDAO.cs" />
     <Compile Include="ViewCampoMinado.xaml.cs">

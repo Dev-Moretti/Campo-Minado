@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Documents;
+using System.Collections.Generic;
+
 
 namespace Campo_Minado
 {
@@ -11,6 +14,8 @@ namespace Campo_Minado
         public MainWindow()
         {
             InitializeComponent();
+
+            CarregaConfig();
         }
 
         private void BTIniciar_Click(object sender, RoutedEventArgs e)
@@ -75,9 +80,21 @@ namespace Campo_Minado
             campoMinado.Width = SystemParameters.MaximizedPrimaryScreenWidth;
             campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             
+            List<MenuConfig> listMenuConfigs = new List<MenuConfig>();
+
+            MenuConfig menuConfig = new MenuConfig(campo, dificuldade, tempoBomba, nomePlayer);
+
+            MenuConfigDAO dao = new MenuConfigDAO();
+
+            listMenuConfigs.Add(menuConfig);
+
+            dao.GravarConfig(listMenuConfigs);
+
             campoMinado.Show();
 
             this.Close();
+
+
         }
 
         private void BTScore_Click(object sender, RoutedEventArgs e)
@@ -86,5 +103,35 @@ namespace Campo_Minado
             scores.Show();
             this.Close();
         }
+
+        private void CarregaConfig()
+        { 
+            MenuConfig menuConfig = new MenuConfig();
+
+            DIFICULDADE dificul = menuConfig.GetDificuldade();
+
+            int dificuldadeInt = 1;
+
+            if (dificul == DIFICULDADE.Iniciante)
+            {
+                dificuldadeInt = 0;
+            }
+            if (dificul == DIFICULDADE.Normal)
+            {
+                dificuldadeInt = 1;
+            }
+            if (dificul == DIFICULDADE.Dificil)
+            {
+                dificuldadeInt = 2;
+            }
+            if (dificul == DIFICULDADE.Epico)
+            {
+                dificuldadeInt = 3;
+            }
+
+            CBDificuldade.SelectedIndex = dificuldadeInt;
+        
+        }
+
     }
 }

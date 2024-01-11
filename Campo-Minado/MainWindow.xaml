@@ -132,7 +132,7 @@
                 Content="Iniciante">
             </ComboBoxItem>
             <ComboBoxItem
-                Content="Normal" IsSelected="True">
+                Content="Normal">
             </ComboBoxItem>
             <ComboBoxItem
                 Content="Difícil">
