@@ -1,1 +1,1 @@
-[{}]
+[{"Campo":10,"Dificuldade":0,"TempoBomba":3,"NomePlayer":"bb"}]

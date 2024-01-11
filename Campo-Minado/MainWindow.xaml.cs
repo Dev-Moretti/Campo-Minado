@@ -79,12 +79,14 @@ namespace Campo_Minado
             campoMinado.Height = SystemParameters.MaximizedPrimaryScreenHeight;
             campoMinado.Width = SystemParameters.MaximizedPrimaryScreenWidth;
             campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
-            List<MenuConfig> listMenuConfigs = new List<MenuConfig>();
-
-            MenuConfig menuConfig = new MenuConfig(campo, dificuldade, tempoBomba, nomePlayer);
 
             MenuConfigDAO dao = new MenuConfigDAO();
+
+            List<MenuConfig> listMenuConfigs = new List<MenuConfig>();
+
+            TEMPO time = (TEMPO)CBTempo.SelectedIndex;
+
+            MenuConfig menuConfig = new MenuConfig(campo, dificuldade, time, nomePlayer);
 
             listMenuConfigs.Add(menuConfig);
 
@@ -108,29 +110,33 @@ namespace Campo_Minado
         { 
             MenuConfig menuConfig = new MenuConfig();
 
-            DIFICULDADE dificul = menuConfig.GetDificuldade();
+            CBDificuldade.SelectedIndex = menuConfig.GetDificuldade();
 
-            int dificuldadeInt = 1;
+            CBTempo.SelectedIndex = menuConfig.GetTempoBomba();
+          
+            int campo = menuConfig.GetCampo();
+            if (campo == 10)
+            {
+                Jx10.IsChecked = true;
+            }
+            else if (campo == 20)
+            {
+                Jx20.IsChecked = true;
+            }
+            else if (campo == 30)
+            {
+                Jx30.IsChecked = true;
+            }
+            else if (campo == 40)
+            {
+                Jx40.IsChecked = true;
+            }
+            else
+            {
+                Jx10.IsChecked = true;
+            }
 
-            if (dificul == DIFICULDADE.Iniciante)
-            {
-                dificuldadeInt = 0;
-            }
-            if (dificul == DIFICULDADE.Normal)
-            {
-                dificuldadeInt = 1;
-            }
-            if (dificul == DIFICULDADE.Dificil)
-            {
-                dificuldadeInt = 2;
-            }
-            if (dificul == DIFICULDADE.Epico)
-            {
-                dificuldadeInt = 3;
-            }
-
-            CBDificuldade.SelectedIndex = dificuldadeInt;
-        
+            TBPlayerName.Text = menuConfig.GetNomePlayer();
         }
 
     }

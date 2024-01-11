@@ -8,12 +8,12 @@ namespace Campo_Minado
 {
     internal class MenuConfig
     {
-        private int Campo;
-        private DIFICULDADE Dificuldade;
-        private TimeSpan TempoBomba;
-        private string NomePlayer;
+        public int Campo { get; set; }
+        public DIFICULDADE Dificuldade { get; set; }
+        public TEMPO TempoBomba { get; set; }
+        public string NomePlayer { get; set; }
 
-        public MenuConfig(int campo, DIFICULDADE dificuldade, TimeSpan tempoBomba, string nomePlayer)
+        public MenuConfig(int campo, DIFICULDADE dificuldade, TEMPO tempoBomba, string nomePlayer)
         {
             Campo = campo;
             Dificuldade = dificuldade;
@@ -31,10 +31,10 @@ namespace Campo_Minado
 
             foreach (MenuConfig item in listDao)
             {
-                item.Campo = Campo;
-                item.Dificuldade = Dificuldade;
-                item.TempoBomba = TempoBomba;
-                item.NomePlayer = NomePlayer;
+                Campo = item.Campo;
+                Dificuldade = item.Dificuldade;
+                TempoBomba = item.TempoBomba;
+                NomePlayer = item.NomePlayer;
             }
         }
 
@@ -44,17 +44,18 @@ namespace Campo_Minado
 
             return Campo;
         }
-        public DIFICULDADE GetDificuldade()
+        public int GetDificuldade()
         {
             CaregarDao();
 
-            return Dificuldade;
+            return Dificuldade.GetHashCode();
+
         }
-        public TimeSpan GetTempoBomba()
+        public int GetTempoBomba()
         {
             CaregarDao();
 
-            return TempoBomba;
+            return TempoBomba.GetHashCode();
         }
         public string GetNomePlayer()
         {
