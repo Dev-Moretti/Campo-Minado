@@ -27,28 +27,11 @@ namespace Campo_Minado
         public int Campo;
         public int Bombas;
 
-
         public ViewScores()
         {
             InitializeComponent();
-        }
 
-        private void ExibeScoreOrganizado(List<Score> listScore)
-        {
-        }
-
-        private void ExibeScoreSimples()
-        {
-            ScoreDAO scoreDao = new ScoreDAO();
-
-            List<Score>listScore = scoreDao.LerListaScore();
-
-            GScores.Items.Clear();
-
-            foreach (Score pontos in listScore)
-            {
-                GScores.Items.Add(pontos);
-            }
+            ExibeScoreSimples();
         }
 
         private void BTVoltar_Click(object sender, RoutedEventArgs e)
@@ -61,7 +44,127 @@ namespace Campo_Minado
         private void BTListar_Click(object sender, RoutedEventArgs e)
         {
             ExibeScoreSimples();
+            
         }
+
+        private void ExibeScoreSimples()
+        {
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score> listScore = scoreDao.LerListaScore();
+
+            ExibeScoreOrganizado(listScore);
+
+            GScores.Items.Clear();
+
+            foreach (Score pontos in listScore)
+            {
+                GScores.Items.Add(pontos);
+            }
+        }
+
+
+        private void ExibeScoreOrganizado(List<Score> listScore)
+        {
+            GScores.Items.Clear();
+
+            int fCampo = CampoSelecionado();
+            int fDificuldade = DificuldadeSelecionado();
+            int fTempo = TempoSelecionado();
+            int fOrdenar = OrdenarSelecionado();
+
+            if (fCampo != 0 && fDificuldade != 0 && fTempo != 0 && fOrdenar != 0)
+            {
+                
+            }
+
+        }
+
+        private int CampoSelecionado()
+        {
+            if (RBCampo10.IsChecked == true)
+            {
+                return 1;
+            }
+            if (RBCampo20.IsChecked == true)
+            {
+                return 2;
+            }
+            if (RBCampo30.IsChecked == true)
+            {
+                return 3;
+            }
+            if (RBCampo40.IsChecked == true)
+            {
+                return 4;
+            }
+
+            return 0;
+        }
+        private int DificuldadeSelecionado()
+        {
+            if (RDIniciante.IsChecked == true)
+            {
+                return 1;
+            }
+            if (RDNormal.IsChecked == true)
+            {
+                return 2;
+            }
+            if (RDDificil.IsChecked == true)
+            {
+                return 3;
+            }
+            if (RDEpico.IsChecked == true)
+            {
+                return 4;
+            }
+
+            return 0;
+        }
+        private int TempoSelecionado()
+        {
+            if (RDTempo1Minuto.IsChecked == true)
+            {
+                return 1;
+            }
+            if (RDTempo2Minutos.IsChecked == true)
+            {
+                return 2;
+            }
+            if (RDTempo3Minutos.IsChecked == true)
+            {
+                return 3;
+            }
+            if (RDTempo4Minutos.IsChecked == true)
+            {
+                return 4;
+            }
+            if (RDTempo5Minutos.IsChecked == true)
+            {
+                return 5;
+            }
+           
+            return 0;
+        }
+        private int OrdenarSelecionado()
+        {
+            if (Decrescente.IsChecked == true)
+            {
+                return 1;
+            }
+            if (Decrescente.IsChecked == true)
+            {
+                return 2; 
+            }
+
+            return 0;
+        }
+
+
+
+
+
 
     }
 }

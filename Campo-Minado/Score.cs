@@ -30,5 +30,8 @@ namespace Campo_Minado
             Bombas = quantidadeBombas;
         }
 
+
+
+
     }
 }
