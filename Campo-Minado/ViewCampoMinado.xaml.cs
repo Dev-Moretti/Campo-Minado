@@ -288,8 +288,9 @@ namespace Campo_Minado
 
                         Celulas[linha, coluna].Content = new Image
                         {
-                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\imagem\\bomb1.png")),
                             //Source = new BitmapImage(new System.Uri(".\\imagem\\bomb1.png")),
+
+                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\imagem\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill

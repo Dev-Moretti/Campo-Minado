@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="Campo Minado" 
         x:Name="CampoMinado"
-        WindowState="Maximized"
-        >
-
+        WindowState="Maximized">
+    
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
