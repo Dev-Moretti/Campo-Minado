@@ -30,11 +30,11 @@ namespace Campo_Minado
             {
                 campo = 10;
             }
-            else if(Jx20.IsChecked ?? false)
+            else if (Jx20.IsChecked ?? false)
             {
                 campo = 20;
             }
-            else if (Jx30.IsChecked ?? false) 
+            else if (Jx30.IsChecked ?? false)
             {
                 campo = 30;
             }
@@ -67,7 +67,7 @@ namespace Campo_Minado
             {
                 tempoBomba = TimeSpan.FromMinutes(1);
             }
-            else 
+            else
             {
                 tempoBomba = TimeSpan.FromMinutes(4);
             }
@@ -86,6 +86,7 @@ namespace Campo_Minado
 
             TEMPO time = (TEMPO)CBTempo.SelectedIndex;
 
+
             MenuConfig menuConfig = new MenuConfig(campo, dificuldade, time, nomePlayer);
 
             listMenuConfigs.Add(menuConfig);
@@ -96,25 +97,27 @@ namespace Campo_Minado
 
             this.Close();
 
-
         }
 
         private void BTScore_Click(object sender, RoutedEventArgs e)
         {
             ViewScores scores = new ViewScores();
+
             scores.Show();
+
             this.Close();
         }
 
         private void CarregaConfig()
-        { 
+        {
             MenuConfig menuConfig = new MenuConfig();
 
-            CBDificuldade.SelectedIndex = menuConfig.GetDificuldade();
+            CBDificuldade.SelectedIndex = menuConfig.GetDificuldadeConfig();
 
-            CBTempo.SelectedIndex = menuConfig.GetTempoBomba();
-          
-            int campo = menuConfig.GetCampo();
+            CBTempo.SelectedIndex = menuConfig.GetTempoBombaConfig();
+
+            int campo = menuConfig.GetCampoConfig();
+
             if (campo == 10)
             {
                 Jx10.IsChecked = true;
@@ -136,7 +139,7 @@ namespace Campo_Minado
                 Jx10.IsChecked = true;
             }
 
-            TBPlayerName.Text = menuConfig.GetNomePlayer();
+            TBPlayerName.Text = menuConfig.GetNomePlayerConfig();
         }
 
     }

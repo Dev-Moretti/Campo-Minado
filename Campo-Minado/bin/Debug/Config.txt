@@ -1,1 +1,1 @@
-[{"Campo":10,"Dificuldade":0,"TempoBomba":3,"NomePlayer":"bb"}]
+W3siQ2FtcG8iOjIwLCJEaWZpY3VsZGFkZSI6MCwiVGVtcG9Cb21iYSI6MywiTm9tZVBsYXllciI6IkRhdmkifV0=

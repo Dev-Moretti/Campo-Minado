@@ -29,7 +29,7 @@ namespace Campo_Minado
         {
             try
             {
-                File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(listScore));
+                File.WriteAllText(path, Criptografar.StringEncodeBase64(Newtonsoft.Json.JsonConvert.SerializeObject(listScore)));
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace Campo_Minado
         {
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<List<Score>>(File.ReadAllText(path));
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<List<Score>>(Criptografar.StringDecodeBase64(File.ReadAllText(path)));
             }
             catch (Exception ex)
             {

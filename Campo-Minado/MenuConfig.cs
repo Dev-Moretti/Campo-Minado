@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Campo_Minado
 {
@@ -31,33 +27,33 @@ namespace Campo_Minado
 
             foreach (MenuConfig item in listDao)
             {
-                Campo = item.Campo;
+                Campo = (item.Campo);
                 Dificuldade = item.Dificuldade;
                 TempoBomba = item.TempoBomba;
                 NomePlayer = item.NomePlayer;
             }
         }
 
-        public int GetCampo()
+        public dynamic GetCampoConfig()
         {
             CaregarDao();
 
             return Campo;
         }
-        public int GetDificuldade()
+        public int GetDificuldadeConfig()
         {
             CaregarDao();
 
             return Dificuldade.GetHashCode();
 
         }
-        public int GetTempoBomba()
+        public int GetTempoBombaConfig()
         {
             CaregarDao();
 
             return TempoBomba.GetHashCode();
         }
-        public string GetNomePlayer()
+        public string GetNomePlayerConfig()
         {
             CaregarDao();
 

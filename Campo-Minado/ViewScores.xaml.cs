@@ -44,7 +44,7 @@ namespace Campo_Minado
         private void BTListar_Click(object sender, RoutedEventArgs e)
         {
             ExibeScoreSimples();
-            
+
         }
 
         private void ExibeScoreSimples()
@@ -75,28 +75,30 @@ namespace Campo_Minado
 
             if (fCampo != 0 && fDificuldade != 0 && fTempo != 0 && fOrdenar != 0)
             {
-                
+
             }
 
+
+            
         }
 
         private int CampoSelecionado()
         {
             if (RBCampo10.IsChecked == true)
             {
-                return 1;
+                return 10;
             }
             if (RBCampo20.IsChecked == true)
             {
-                return 2;
+                return 20;
             }
             if (RBCampo30.IsChecked == true)
             {
-                return 3;
+                return 30;
             }
             if (RBCampo40.IsChecked == true)
             {
-                return 4;
+                return 40;
             }
 
             return 0;
@@ -144,7 +146,7 @@ namespace Campo_Minado
             {
                 return 5;
             }
-           
+
             return 0;
         }
         private int OrdenarSelecionado()
@@ -155,7 +157,7 @@ namespace Campo_Minado
             }
             if (Decrescente.IsChecked == true)
             {
-                return 2; 
+                return 2;
             }
 
             return 0;
