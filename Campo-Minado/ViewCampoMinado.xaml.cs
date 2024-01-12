@@ -1,8 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.IO;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Xml;
 
 namespace Campo_Minado
 {
@@ -20,6 +16,7 @@ namespace Campo_Minado
     public partial class ViewCampoMinado : Window, INotifyPropertyChanged
     {
         private CampoMinado campoMinado;
+
         private ButtonCelula[,] Celulas;
 
         public Thread temporizador;

@@ -31,7 +31,7 @@ namespace Campo_Minado
         {
             InitializeComponent();
 
-            ExibeScoreSimples();
+            ExibeScoreOrganizado(1);
         }
 
         private void BTVoltar_Click(object sender, RoutedEventArgs e)
@@ -43,18 +43,11 @@ namespace Campo_Minado
 
         private void BTListar_Click(object sender, RoutedEventArgs e)
         {
-            ExibeScoreSimples();
-
+            ExibeScoreOrganizado(0);
         }
 
-        private void ExibeScoreSimples()
+        private void ExibeScoreSimples(List<Score> listScore)
         {
-            ScoreDAO scoreDao = new ScoreDAO();
-
-            List<Score> listScore = scoreDao.LerListaScore();
-
-            ExibeScoreOrganizado(listScore);
-
             GScores.Items.Clear();
 
             foreach (Score pontos in listScore)
@@ -64,9 +57,13 @@ namespace Campo_Minado
         }
 
 
-        private void ExibeScoreOrganizado(List<Score> listScore)
+        private void ExibeScoreOrganizado(int auto)
         {
             GScores.Items.Clear();
+
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score> listScore = scoreDao.LerListaScore();
 
             int fCampo = CampoSelecionado();
             int fDificuldade = DificuldadeSelecionado();
@@ -75,11 +72,35 @@ namespace Campo_Minado
 
             if (fCampo != 0 && fDificuldade != 0 && fTempo != 0 && fOrdenar != 0)
             {
+                ExibeScoreSimples(OrdenarLista(listScore, fCampo, fDificuldade, fTempo, fOrdenar));
+            }
+            else if(auto == 0)
+            {
+                MessageBox.Show("Selecione os filtros corretamente!", "OPS....", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                ExibeScoreSimples(listScore);
+            }
+
+
+
+        }
+
+
+        private List<Score> OrdenarLista(List<Score> listScore, int campo, int difi, int tempo, int ordem)
+        {
+            List<Score> listTemp = new List<Score>();
+
+            foreach (Score item in listScore)
+            {
 
             }
 
 
-            
+
+
+            return listTemp;
         }
 
         private int CampoSelecionado()

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows;
 
@@ -48,7 +45,7 @@ namespace Campo_Minado
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro {ex}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Arquivo de Scores Vazio", "Erro", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 return new List<Score>();
             }
