@@ -49,7 +49,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 68 "..\..\MainWindow.xaml"
+        #line 67 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton Jx20;
         
@@ -57,7 +57,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 89 "..\..\MainWindow.xaml"
+        #line 87 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton Jx30;
         
@@ -65,7 +65,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 102 "..\..\MainWindow.xaml"
+        #line 99 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton Jx40;
         
@@ -73,7 +73,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 126 "..\..\MainWindow.xaml"
+        #line 122 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox CBDificuldade;
         
@@ -81,7 +81,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 156 "..\..\MainWindow.xaml"
+        #line 152 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox CBTempo;
         
@@ -89,7 +89,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 191 "..\..\MainWindow.xaml"
+        #line 187 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox TBPlayerName;
         
@@ -97,7 +97,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 205 "..\..\MainWindow.xaml"
+        #line 201 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BTIniciar;
         
@@ -105,7 +105,7 @@ namespace Campo_Minado {
         #line hidden
         
         
-        #line 221 "..\..\MainWindow.xaml"
+        #line 217 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BTScores;
         
@@ -166,7 +166,7 @@ namespace Campo_Minado {
             case 8:
             this.BTIniciar = ((System.Windows.Controls.Button)(target));
             
-            #line 214 "..\..\MainWindow.xaml"
+            #line 210 "..\..\MainWindow.xaml"
             this.BTIniciar.Click += new System.Windows.RoutedEventHandler(this.BTIniciar_Click);
             
             #line default
@@ -175,7 +175,7 @@ namespace Campo_Minado {
             case 9:
             this.BTScores = ((System.Windows.Controls.Button)(target));
             
-            #line 230 "..\..\MainWindow.xaml"
+            #line 226 "..\..\MainWindow.xaml"
             this.BTScores.Click += new System.Windows.RoutedEventHandler(this.BTScore_Click);
             
             #line default

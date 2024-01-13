@@ -30,7 +30,7 @@ namespace Campo_Minado
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro {ex}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Erro {ex}", "Erro ao gravar score", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 return false;
             }

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Campo-Minado.exe" version="1.0.0.2" publicKeyToken="b98fc4ce23d624ac" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="land-mine.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Campo-Minado" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Campo-Minado.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opções de Manifesto do UAC
+          Para alterar o nível de Controle de Conta de Usuário do Windows, substitua o nó
+          requestedExecutionLevel por um dos seguintes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Para utilizar a Virtualização de Arquivos e Registro para manter a compatibilidade com versões anteriores,
+         exclua o nó requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Campo-Minado.exe" size="58304">
+      <assemblyIdentity name="Campo-Minado" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WUdoJ4N/G5GYicBOQNuENq2qeAt33UCIvXct2z/Ei9Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="711952">
+      <assemblyIdentity name="Newtonsoft.Json" version="13.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4eJ697B+7t9c5xqSVfBCKBam/FhJpIPGcU4bRyBE+p0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Drawing.Common.dll" size="49824">
+      <assemblyIdentity name="System.Drawing.Common" version="8.0.0.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>px8nNyqFWw8PK+cWIKhkeG0JpizLW2hNARbaeDrWlPY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Campo-Minado.exe.config" size="232">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0a2WumEwVqDu5PNj3rr2emKXUaSA6X+soiXYdvApNYA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="imagem\bomb1.png" size="7612">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lVJS5A5r6KL7tXuSLvB8sA/+ZAgnNgmojirfuX4nbSc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="land-mine.ico" size="7503">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pXD1O4yRu5LZ2OAf/J63IMEfF8NV79EqlwqYmDjjs8M=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DAVI_M-CASA\davi" issuerKeyHash="7b97e15faf8b68dce13bc660bbfec7af381b1b69" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>kR3KyASdrFsXXxr1/k9eok8Lv429bVCXaPqugc36a7o=</DigestValue></Reference></SignedInfo><SignatureValue>CpZ7aQVJJPYNlTZ+QcbzveNdi/WGq4io2HvTY7htKugbMtW2aBUKrdGFXyrDjD/guQAkL1hDBGXRgRkJELdKmltSDGb7tBEnroOgS2Z4ykn40jAob68qCnw8SNiuSdmDFQHFVLn33nqTUQ/3+LoqdSMtKu7RShE3Iz+bR74tZ7g=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>4nN3LdWup7GWhkpSsCdoPjjIj+ulCrwivEdyRoqK3QwD+jDDNHcNjbg5kZ3KebR9hOTyy4yBy86S0CcrNq/2IVBGDNCtUzzGce+W1HdEc7sXw3/gLwKchE453axsH4sYWztkDMtHHbUr9nqqmNL6LudSMLBH6OIo0AosGlB4tXU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ba6bfacd81aefa6897506dbd8dbf0b4fa25e4ffef51a5f175bac9d04c8ca1d91" Description="" Url=""><as:assemblyIdentity name="Campo-Minado.exe" version="1.0.0.2" publicKeyToken="b98fc4ce23d624ac" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DAVI_M-CASA\davi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>HrIbxmVnUQuE7aMIY/3JoM41dHLieW/rAynMtjUyM5I=</DigestValue></Reference></SignedInfo><SignatureValue>2OXjcgc0JkXhXj82tO/nPNIcGrqrs4Bg1pwDvkNUUEILkN9szgL4mVGw+jJ9YGsLdIgy3Mpg62IF3KCEx9/nLoV3pL61uPB2p2YAabx99tIPCUzOfiGo2mZ6FCAnGVrR89TWX3BedMs8RxdBgNj9JPCaJgMLPn8A8LszR+uC1GY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>4nN3LdWup7GWhkpSsCdoPjjIj+ulCrwivEdyRoqK3QwD+jDDNHcNjbg5kZ3KebR9hOTyy4yBy86S0CcrNq/2IVBGDNCtUzzGce+W1HdEc7sXw3/gLwKchE453axsH4sYWztkDMtHHbUr9nqqmNL6LudSMLBH6OIo0AosGlB4tXU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQG6OEu5Azd4BFXecxJv9H3jANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDHiAARABBAFYASQBfAE0ALQBDAEEAUwBBAFwAZABhAHYAaTAeFw0yNDAxMTMxMjM4NTZaFw0yNTAxMTIxODM4NTZaMCsxKTAnBgNVBAMeIABEAEEAVgBJAF8ATQAtAEMAQQBTAEEAXABkAGEAdgBpMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDic3ct1a6nsZaGSlKwJ2g+OMiP66UKvCK8R3JGiordDAP6MMM0dw2NuDmRncp5tH2E5PLLjIHLzpLQJys2r/YhUEYM0K1TPMZx75bUd0RzuxfDf+AvApyETjndrGwfixhbO2QMy0cdtSv2eqqY0vou51IwsEfo4ijQCiwaUHi1dQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAEa3oRWBzxq1iAs+9ylv7wqzCYwp4Xw8qMBpzES+qzR0A0fbf+VEMvjDQ8NEpmAT9h7mM8sOo0CzbUkoO3eeYU7Qq5TYEy15UhBM2favwJhegFxrExpwToKM+Ta/YwmNMyiDOGQl9ZsAQg+Tgbm2D6j7M4zsGCD8IaNvn9qPNY67</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
