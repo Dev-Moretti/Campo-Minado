@@ -56,3 +56,7 @@ C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.cs
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.csproj.CopyComplete
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.exe
 C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.pdb
+C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\bin\Debug\Campo-Minado.exe.manifest
+C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\bin\Debug\Campo-Minado.application
+C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.exe.manifest
+C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\Campo-Minado.application

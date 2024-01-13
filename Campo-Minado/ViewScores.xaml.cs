@@ -31,7 +31,7 @@ namespace Campo_Minado
         {
             InitializeComponent();
 
-            ExibeScoreOrganizado(1);
+            ExibeScoreOrganizado();
         }
 
         private void BTVoltar_Click(object sender, RoutedEventArgs e)
@@ -43,7 +43,7 @@ namespace Campo_Minado
 
         private void BTListar_Click(object sender, RoutedEventArgs e)
         {
-            ExibeScoreOrganizado(0);
+            ExibeScoreOrganizado();
         }
 
         private void ExibeScoreSimples(List<Score> listScore)
@@ -57,53 +57,47 @@ namespace Campo_Minado
         }
 
 
-        private void ExibeScoreOrganizado(int auto)
+        private void ExibeScoreOrganizado()
         {
             GScores.Items.Clear();
 
             ScoreDAO scoreDao = new ScoreDAO();
 
+            Score score = new Score();
+
             List<Score> listScore = scoreDao.LerListaScore();
 
-            int fCampo = CampoSelecionado();
-            int fDificuldade = DificuldadeSelecionado();
-            int fTempo = TempoSelecionado();
-            int fOrdenar = OrdenarSelecionado();
+            int? fCampo = CampoSelecionado();
 
-            if (fCampo != 0 && fDificuldade != 0 && fTempo != 0 && fOrdenar != 0)
-            {
-                ExibeScoreSimples(OrdenarLista(listScore, fCampo, fDificuldade, fTempo, fOrdenar));
-            }
-            else if(auto == 0)
-            {
-                MessageBox.Show("Selecione os filtros corretamente!", "OPS....", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            else
-            {
-                ExibeScoreSimples(listScore);
-            }
+            DIFICULDADE? fDificuldade = DificuldadeSelecionada(); 
 
+            TimeSpan? fTempo = TempoSelecionado();
 
+            ExibeScoreSimples(score.OrdenarLista(listScore, fCampo, fDificuldade, fTempo));
 
         }
 
-
-        private List<Score> OrdenarLista(List<Score> listScore, int campo, int difi, int tempo, int ordem)
+        private DIFICULDADE? DificuldadeSelecionada()
         {
-            List<Score> listTemp = new List<Score>();
-
-            foreach (Score item in listScore)
+            if (RDIniciante.IsChecked == true)
             {
-
+                return DIFICULDADE.Iniciante;
             }
-
-
-
-
-            return listTemp;
+            if (RDNormal.IsChecked == true)
+            {
+                return DIFICULDADE.Normal;
+            }
+            if (RDDificil.IsChecked == true)
+            {
+                return DIFICULDADE.Dificil;
+            }
+            if (RDEpico.IsChecked == true)
+            {
+                return DIFICULDADE.Epico;
+            }
+            return null;
         }
-
-        private int CampoSelecionado()
+        private int? CampoSelecionado()
         {
             if (RBCampo10.IsChecked == true)
             {
@@ -122,72 +116,33 @@ namespace Campo_Minado
                 return 40;
             }
 
-            return 0;
+            return null;
         }
-        private int DificuldadeSelecionado()
-        {
-            if (RDIniciante.IsChecked == true)
-            {
-                return 1;
-            }
-            if (RDNormal.IsChecked == true)
-            {
-                return 2;
-            }
-            if (RDDificil.IsChecked == true)
-            {
-                return 3;
-            }
-            if (RDEpico.IsChecked == true)
-            {
-                return 4;
-            }
-
-            return 0;
-        }
-        private int TempoSelecionado()
+        private TimeSpan? TempoSelecionado()
         {
             if (RDTempo1Minuto.IsChecked == true)
             {
-                return 1;
+                return TimeSpan.FromMinutes(1);
             }
             if (RDTempo2Minutos.IsChecked == true)
             {
-                return 2;
+                return TimeSpan.FromMinutes(2);
             }
             if (RDTempo3Minutos.IsChecked == true)
             {
-                return 3;
+                return TimeSpan.FromMinutes(3);
             }
             if (RDTempo4Minutos.IsChecked == true)
             {
-                return 4;
+                return TimeSpan.FromMinutes(4);
             }
             if (RDTempo5Minutos.IsChecked == true)
             {
-                return 5;
+                return TimeSpan.FromMinutes(5);
             }
 
-            return 0;
+            return null;
         }
-        private int OrdenarSelecionado()
-        {
-            if (Decrescente.IsChecked == true)
-            {
-                return 1;
-            }
-            if (Decrescente.IsChecked == true)
-            {
-                return 2;
-            }
-
-            return 0;
-        }
-
-
-
-
-
 
     }
 }

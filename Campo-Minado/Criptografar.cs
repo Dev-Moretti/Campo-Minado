@@ -19,19 +19,5 @@ namespace Campo_Minado
             return Encoding.UTF8.GetString(bytes);
         }
 
-        //public string EncodeIntBase64String(int encode)
-        //{
-        //    byte[] bytes = BitConverter.GetBytes(encode);
-
-        //    return Convert.ToBase64String(bytes);
-        //}
-
-        //public int DecodeStringBase64Int(string decode)
-        //{
-        //    byte[] base64Bytes = Convert.FromBase64String(decode);
-
-        //    return BitConverter.ToInt32(base64Bytes, 0);
-        //}
-
     }
 }

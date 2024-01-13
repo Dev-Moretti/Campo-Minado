@@ -38,6 +38,12 @@
                 <StackPanel Margin="2,2,2,2"
                             Cursor="Hand">
 
+                    <RadioButton Name="RBCampoTodos"
+                                     Content="Todos"
+                                    IsChecked="True"
+                                     Margin="2,0,0,2">
+                    </RadioButton>
+                    
                     <RadioButton Name="RBCampo10"
                                      Content="Campo 10 X 10"
                                      Margin="2,0,0,2">
@@ -61,6 +67,7 @@
             </GroupBox>
 
             <GroupBox Header="Dificuldade"
+                      Name="GBoxDificuldade"
                       Grid.Row="0"
                       Grid.Column="1"
                       VerticalAlignment="Top"
@@ -69,6 +76,12 @@
 
                 <StackPanel Margin="2,2,2,2"
                             Cursor="Hand">
+
+                    <RadioButton Name="RDTodos"
+                                 Content="Todos"                                 
+                                 IsChecked="True"
+                                 Margin="2,0,0,2">
+                    </RadioButton>
 
                     <RadioButton Name="RDIniciante"
                                  Content="Iniciante"
@@ -103,6 +116,11 @@
                 <StackPanel Margin="2,2,2,2"
                             Cursor="Hand">
 
+                    <RadioButton Name="RDTempoTodos"
+                                 IsChecked="True"
+                                 Content="Todos">
+                    </RadioButton>
+
                     <RadioButton Name="RDTempo1Minuto"
                                  Content="1 Minuto">
                     </RadioButton>
@@ -126,24 +144,7 @@
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Header="Ordenar"
-                      Grid.Column="3"
-                      VerticalAlignment="Top"
-                      Margin="2,2,2,2"
-                      FontSize="13">
-
-                <StackPanel Margin="2,2,2,2" 
-                            Cursor="Hand">
-
-                    <RadioButton Name="Decrescente"
-                                 Content="Decrescente">
-                    </RadioButton>
-
-                    <RadioButton Name="Crescente"
-                                 Content="Crescente">
-                    </RadioButton>
-                </StackPanel>
-            </GroupBox>
+           
 
             <Button Grid.Column="4"
                     VerticalAlignment="Center"
