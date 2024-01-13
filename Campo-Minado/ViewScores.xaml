@@ -5,68 +5,224 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Campo_Minado"
         mc:Ignorable="d"
-        Title="SCORES" >
-
+        Title="PONTUAÇÃO" 
+        Height="600"
+        Width="900"
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.8*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="0.9*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
 
-        <Label 
-            Grid.Row="0"
-            Grid.Column="0"
-            FontSize="25"
-            VerticalAlignment="Center"
-            >Posição:
-        </Label>
-        
-        <Label
-            Grid.Row="0"
-            Grid.Column="1"
-            FontSize="25"
-            VerticalAlignment="Center"
-            >Nome:
-        </Label>
+        <Grid Grid.Row="0">
 
-        <Label
-            Grid.Row="0"
-            Grid.Column="2"
-            FontSize="25"
-            VerticalAlignment="Center"
-            >Dificuldade:
-        </Label>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label
-            Grid.Row="0"
-            Grid.Column="3"
-            FontSize="25"
-            VerticalAlignment="Center"
-            >Explosão em:
-        </Label>
-        
-        <Label
-            Grid.Row="0"
-            Grid.Column="4"
-            FontSize="25"
-            VerticalAlignment="Center"
-            >Terminou em:
-        </Label>
+
+            <GroupBox Header="Campo"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      VerticalAlignment="Top"
+                      Margin="2,2,2,2"
+                      FontSize="13">
+
+                <StackPanel Margin="2,2,2,2"
+                            Cursor="Hand">
+
+                    <RadioButton Name="RBCampo10"
+                                     Content="Campo 10 X 10"
+                                     Margin="2,0,0,2">
+                    </RadioButton>
+
+                    <RadioButton Name="RBCampo20"
+                                     Content="Campo 20 X 20"
+                                     Margin="2,0,0,2">
+                    </RadioButton>
+
+                    <RadioButton Name="RBCampo30"
+                                     Content="Campo 30 X 30"
+                                     Margin="2,0,0,2">
+                    </RadioButton>
+
+                    <RadioButton Name="RBCampo40"
+                                     Content="Campo 40 X 40"
+                                     Margin="2,0,0,2">
+                    </RadioButton>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Dificuldade"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      VerticalAlignment="Top"
+                      Margin="2,2,2,2"
+                      FontSize="13">
+
+                <StackPanel Margin="2,2,2,2"
+                            Cursor="Hand">
+
+                    <RadioButton Name="RDIniciante"
+                                 Content="Iniciante"
+                                 Margin="2,0,0,2">
+                    </RadioButton>
+
+                    <RadioButton Name="RDNormal"
+                                 Content="Normal"
+                                 Margin="2,0,0,2">
+                    </RadioButton>
+
+                    <RadioButton Name="RDDificil"
+                                 Content="Difícil"
+                                 Margin="2,0,0,2">
+                    </RadioButton>
+
+                    <RadioButton Name="RDEpico"
+                                 Content="Épico"
+                                 Margin="2,0,0,2">
+                    </RadioButton>
+
+                </StackPanel>
+
+            </GroupBox>
+
+            <GroupBox Header="Tempo Limite"
+                      Grid.Column="2"
+                      VerticalAlignment="Top"
+                      Margin="2,2,2,2"
+                      FontSize="12">
+
+                <StackPanel Margin="2,2,2,2"
+                            Cursor="Hand">
+
+                    <RadioButton Name="RDTempo1Minuto"
+                                 Content="1 Minuto">
+                    </RadioButton>
+
+                    <RadioButton Name="RDTempo2Minutos"
+                                 Content="2 Minutos">
+                    </RadioButton>
+
+                    <RadioButton Name="RDTempo3Minutos"
+                                 Content="3 Minutos">
+                    </RadioButton>
+
+                    <RadioButton Name="RDTempo4Minutos"
+                                 Content="4 Minutos">
+                    </RadioButton>
+
+                    <RadioButton Name="RDTempo5Minutos"
+                                 Content="5 Minutos">
+                    </RadioButton>
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Ordenar"
+                      Grid.Column="3"
+                      VerticalAlignment="Top"
+                      Margin="2,2,2,2"
+                      FontSize="13">
+
+                <StackPanel Margin="2,2,2,2" 
+                            Cursor="Hand">
+
+                    <RadioButton Name="Decrescente"
+                                 Content="Decrescente">
+                    </RadioButton>
+
+                    <RadioButton Name="Crescente"
+                                 Content="Crescente">
+                    </RadioButton>
+                </StackPanel>
+            </GroupBox>
+
+            <Button Grid.Column="4"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Height="30"
+                    Width="75"
+                    FontSize="16"
+                    Background="#FF6DBAEC"
+                    Content="LISTAR"
+                    Margin="10,0,0,0"
+                    Name="BTListar"
+                    Click="BTListar_Click"
+                    Cursor="Hand">
+            </Button>
+
+            <Button Grid.Column="4"
+                    Height="30"
+                    Width="75"
+                    Content="VOLTAR"
+                    FontSize="16"
+                    Background="Tomato"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,0,5,0"
+                    Name="BTVoltar" 
+                    Click="BTVoltar_Click" 
+                    Cursor="Hand">
+            </Button>
+
+        </Grid>
+
+        <DataGrid Name="GScores"
+                  Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  FontSize="16"
+                  Margin="5,0,5,0">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Jogador"
+                                    Binding="{Binding Nome}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Tempo do Pavio"
+                                    Binding="{Binding TempoBomba}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Tempo Jogado"
+                                    Binding="{Binding TempoJogado}"
+                                    Width="1*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Dificuldade"
+                                    Binding="{Binding Dificuldade}"
+                                    Width="0.6*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Campo"
+                                    Binding="{Binding Campo}"
+                                    Width="0.5*">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="Bombas"
+                                    Binding="{Binding Bombas}"
+                                    Width="0.5*">
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
 
 
 
     </Grid>
+
 
 
 </Window>

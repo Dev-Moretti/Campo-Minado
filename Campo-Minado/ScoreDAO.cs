@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
 
 
 
@@ -28,10 +26,12 @@ namespace Campo_Minado
         {
             try
             {
-                File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(listScore));
+                File.WriteAllText(path, Criptografar.StringEncodeBase64(Newtonsoft.Json.JsonConvert.SerializeObject(listScore)));
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Erro {ex}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return false;
             }
             return true;
@@ -41,12 +41,16 @@ namespace Campo_Minado
         {
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<List<Score>>(File.ReadAllText(path));
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<List<Score>>(Criptografar.StringDecodeBase64(File.ReadAllText(path)));
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Arquivo de Scores Vazio", "Erro", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 return new List<Score>();
             }
         }
+
+
     }
 }

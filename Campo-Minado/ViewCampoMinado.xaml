@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="Campo Minado" 
         x:Name="CampoMinado"
-        WindowState="Maximized"
-        >
-
+        WindowState="Maximized">
+    
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -43,6 +42,20 @@
         <TickBar>   
             
         </TickBar>
+
+        <Button Grid.Row="0"
+                Grid.Column="1"
+                Height="30"
+                Width="70"
+                Content="VOLTAR"
+                Background="Tomato"
+                FontSize="16"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="260,-15,0,0"
+                Name="BTVoltar2" 
+                Click="BTVoltar2_Click">
+        </Button>
     </Grid>
 
 </Window>

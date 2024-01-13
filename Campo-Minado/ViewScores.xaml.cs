@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,41 +20,169 @@ namespace Campo_Minado
     /// </summary>
     public partial class ViewScores : Window
     {
+        public string Nome;
+        public TimeSpan TempoBomba;
+        public TimeSpan TempoJogado;
+        public DIFICULDADE Dificuldade;
+        public int Campo;
+        public int Bombas;
+
         public ViewScores()
         {
             InitializeComponent();
+
+            ExibeScoreOrganizado(1);
         }
 
-        public void PosicoesScore()
+        private void BTVoltar_Click(object sender, RoutedEventArgs e)
         {
-            string nome;
-            TimeSpan tempoBomba;
-            TimeSpan tempoJogado;
-            DIFICULDADE dificuldade;
-            int campo;
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
 
-            Score score = new Score();
-            List<string> listScore = new List<string>();
-            List<string> listTemp = new List<string>();
-            
-            foreach (string str in listTemp)
+        private void BTListar_Click(object sender, RoutedEventArgs e)
+        {
+            ExibeScoreOrganizado(0);
+        }
+
+        private void ExibeScoreSimples(List<Score> listScore)
+        {
+            GScores.Items.Clear();
+
+            foreach (Score pontos in listScore)
             {
-                
+                GScores.Items.Add(pontos);
+            }
+        }
+
+
+        private void ExibeScoreOrganizado(int auto)
+        {
+            GScores.Items.Clear();
+
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score> listScore = scoreDao.LerListaScore();
+
+            int fCampo = CampoSelecionado();
+            int fDificuldade = DificuldadeSelecionado();
+            int fTempo = TempoSelecionado();
+            int fOrdenar = OrdenarSelecionado();
+
+            if (fCampo != 0 && fDificuldade != 0 && fTempo != 0 && fOrdenar != 0)
+            {
+                ExibeScoreSimples(OrdenarLista(listScore, fCampo, fDificuldade, fTempo, fOrdenar));
+            }
+            else if(auto == 0)
+            {
+                MessageBox.Show("Selecione os filtros corretamente!", "OPS....", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                ExibeScoreSimples(listScore);
+            }
 
 
 
+        }
+
+
+        private List<Score> OrdenarLista(List<Score> listScore, int campo, int difi, int tempo, int ordem)
+        {
+            List<Score> listTemp = new List<Score>();
+
+            foreach (Score item in listScore)
+            {
 
             }
 
 
 
 
-
-
-
+            return listTemp;
         }
 
+        private int CampoSelecionado()
+        {
+            if (RBCampo10.IsChecked == true)
+            {
+                return 10;
+            }
+            if (RBCampo20.IsChecked == true)
+            {
+                return 20;
+            }
+            if (RBCampo30.IsChecked == true)
+            {
+                return 30;
+            }
+            if (RBCampo40.IsChecked == true)
+            {
+                return 40;
+            }
 
+            return 0;
+        }
+        private int DificuldadeSelecionado()
+        {
+            if (RDIniciante.IsChecked == true)
+            {
+                return 1;
+            }
+            if (RDNormal.IsChecked == true)
+            {
+                return 2;
+            }
+            if (RDDificil.IsChecked == true)
+            {
+                return 3;
+            }
+            if (RDEpico.IsChecked == true)
+            {
+                return 4;
+            }
+
+            return 0;
+        }
+        private int TempoSelecionado()
+        {
+            if (RDTempo1Minuto.IsChecked == true)
+            {
+                return 1;
+            }
+            if (RDTempo2Minutos.IsChecked == true)
+            {
+                return 2;
+            }
+            if (RDTempo3Minutos.IsChecked == true)
+            {
+                return 3;
+            }
+            if (RDTempo4Minutos.IsChecked == true)
+            {
+                return 4;
+            }
+            if (RDTempo5Minutos.IsChecked == true)
+            {
+                return 5;
+            }
+
+            return 0;
+        }
+        private int OrdenarSelecionado()
+        {
+            if (Decrescente.IsChecked == true)
+            {
+                return 1;
+            }
+            if (Decrescente.IsChecked == true)
+            {
+                return 2;
+            }
+
+            return 0;
+        }
 
 
 

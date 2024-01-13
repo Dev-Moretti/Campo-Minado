@@ -4,16 +4,21 @@
 winexe
 C#
 .cs
-C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\obj\Debug\
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\obj\Debug\
 Campo_Minado
 none
 false
 DEBUG;TRACE
-C:\Users\davia\source\repos\Campo-Minado\Campo-Minado\App.xaml
+C:\Users\Pichau\source\repos\Campo-Minado\Campo-Minado\App.xaml
 4-1390024001
 1-1097993904
+<<<<<<< HEAD
 15-1205612035
 161599894468
+=======
+17-2044060294
+161740124790
+>>>>>>> e4d6f4406aea3392bb99e6627e577e9f665458a5
 EndGame.xaml;MainWindow.xaml;ViewCampoMinado.xaml;ViewScores.xaml;
 
 True

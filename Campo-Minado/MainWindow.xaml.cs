@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Documents;
+using System.Collections.Generic;
+
 
 namespace Campo_Minado
 {
@@ -12,8 +15,8 @@ namespace Campo_Minado
         {
             InitializeComponent();
 
+            CarregaConfig();
         }
-
 
         private void BTIniciar_Click(object sender, RoutedEventArgs e)
         {
@@ -27,11 +30,11 @@ namespace Campo_Minado
             {
                 campo = 10;
             }
-            else if(Jx20.IsChecked ?? false)
+            else if (Jx20.IsChecked ?? false)
             {
                 campo = 20;
             }
-            else if (Jx30.IsChecked ?? false) 
+            else if (Jx30.IsChecked ?? false)
             {
                 campo = 30;
             }
@@ -64,7 +67,7 @@ namespace Campo_Minado
             {
                 tempoBomba = TimeSpan.FromMinutes(1);
             }
-            else 
+            else
             {
                 tempoBomba = TimeSpan.FromMinutes(4);
             }
@@ -76,17 +79,68 @@ namespace Campo_Minado
             campoMinado.Height = SystemParameters.MaximizedPrimaryScreenHeight;
             campoMinado.Width = SystemParameters.MaximizedPrimaryScreenWidth;
             campoMinado.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
+
+            MenuConfigDAO dao = new MenuConfigDAO();
+
+            List<MenuConfig> listMenuConfigs = new List<MenuConfig>();
+
+            TEMPO time = (TEMPO)CBTempo.SelectedIndex;
+
+
+            MenuConfig menuConfig = new MenuConfig(campo, dificuldade, time, nomePlayer);
+
+            listMenuConfigs.Add(menuConfig);
+
+            dao.GravarConfig(listMenuConfigs);
+
             campoMinado.Show();
 
             this.Close();
+
         }
 
         private void BTScore_Click(object sender, RoutedEventArgs e)
         {
             ViewScores scores = new ViewScores();
+
             scores.Show();
+
             this.Close();
         }
+
+        private void CarregaConfig()
+        {
+            MenuConfig menuConfig = new MenuConfig();
+
+            CBDificuldade.SelectedIndex = menuConfig.GetDificuldadeConfig();
+
+            CBTempo.SelectedIndex = menuConfig.GetTempoBombaConfig();
+
+            int campo = menuConfig.GetCampoConfig();
+
+            if (campo == 10)
+            {
+                Jx10.IsChecked = true;
+            }
+            else if (campo == 20)
+            {
+                Jx20.IsChecked = true;
+            }
+            else if (campo == 30)
+            {
+                Jx30.IsChecked = true;
+            }
+            else if (campo == 40)
+            {
+                Jx40.IsChecked = true;
+            }
+            else
+            {
+                Jx10.IsChecked = true;
+            }
+
+            TBPlayerName.Text = menuConfig.GetNomePlayerConfig();
+        }
+
     }
 }

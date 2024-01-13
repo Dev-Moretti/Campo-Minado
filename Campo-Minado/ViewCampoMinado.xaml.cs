@@ -1,8 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.IO;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Xml;
 
 namespace Campo_Minado
 {
@@ -20,6 +16,7 @@ namespace Campo_Minado
     public partial class ViewCampoMinado : Window, INotifyPropertyChanged
     {
         private CampoMinado campoMinado;
+
         private ButtonCelula[,] Celulas;
 
         public Thread temporizador;
@@ -175,13 +172,6 @@ namespace Campo_Minado
             }
         }
 
-        //private void VoltaInicio()
-        //{
-        //    MainWindow menuIniciar = new MainWindow();
-        //    this.Close();
-        //    menuIniciar.Show();
-        //}
-
         private void BTCelula_Click(object sender, RoutedEventArgs e)
         {
             ButtonCelula BTCel = (ButtonCelula)sender;
@@ -295,8 +285,9 @@ namespace Campo_Minado
 
                         Celulas[linha, coluna].Content = new Image
                         {
-                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\imagem\\bomb1.png")),
                             //Source = new BitmapImage(new System.Uri(".\\imagem\\bomb1.png")),
+
+                            Source = new BitmapImage(new System.Uri($"{System.Environment.CurrentDirectory.ToString()}" + "\\imagem\\bomb1.png")),
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Stretch = Stretch.Fill
@@ -356,10 +347,11 @@ namespace Campo_Minado
                     System.Threading.Thread.Sleep(100);
                 }
 
-                if (executandoTemporizador)
+                if (campoMinado.GetTempoDecorrido() <= TimeSpan.Zero)
                 {
                     Dispatcher.BeginInvoke((Action)(() => { FinalizaGame(3); }));
                 }
+
             });
 
         }
@@ -373,6 +365,11 @@ namespace Campo_Minado
             ViewBombasDerrota();
 
             endGame.ShowDialog();
+        }
+
+        private void BTVoltar2_Click(object sender, RoutedEventArgs e)
+        {
+            FinalizaGame(4);
         }
     }
 }

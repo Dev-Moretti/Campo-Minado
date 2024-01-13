@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Windows;
 
 namespace Campo_Minado
 {
@@ -14,8 +10,10 @@ namespace Campo_Minado
         public DIFICULDADE Dificuldade{get; set;}
         public int Campo{get; set;}
         public int Bombas{get; set;}
+
         public Score() 
         {
+
         }
 
         public Score(string nome, TimeSpan tempoBomba, TimeSpan tempoJogado, DIFICULDADE dificuldade, int campo, int quantidadeBombas)
@@ -27,6 +25,7 @@ namespace Campo_Minado
             Campo = campo;
             Bombas = quantidadeBombas;
         }
+
 
 
 

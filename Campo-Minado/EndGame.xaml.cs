@@ -14,9 +14,10 @@ namespace Campo_Minado
     /// </summary>
     public partial class EndGame : Window
     {
-        private string msg1 = "Você pisou em uma bomba!!";
-        private string msg2 = "Você encontrou todas as bombas!!";
-        private string msg3 = "O tempo acabou e as bombas explodiram!!!";
+        private string msg1 = "Você pisou em uma bomba!";
+        private string msg2 = "Você encontrou todas as bombas!";
+        private string msg3 = "O tempo acabou e as bombas explodiram!";
+        private string msg4 = "Partida abortada!";
         private ViewCampoMinado view;
 
         public EndGame(int tipo, ViewCampoMinado view)
@@ -43,27 +44,10 @@ namespace Campo_Minado
             {
                 EndGameMSG.Content = msg3;
             }
-
-            //this.Top = (double)WindowStartupLocation.CenterOwner;
-            //this.Left = (double)WindowStartupLocation.CenterOwner;
-
-            //this.Show();
-            //this.WindowStartupLocation = WindowStartupLocation.Manual;
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    this.Left += 5;
-            //    this.Top += 5;
-            //    System.Threading.Thread.Sleep(50);
-            //    this.Left -= 5;
-            //    this.Top -= 5;
-            //    System.Threading.Thread.Sleep(50);
-            //    this.Left += 5;
-            //    this.Top += 5;
-            //    System.Threading.Thread.Sleep(50);
-            //    this.Left -= 5;
-            //    this.Top -= 5;
-            //}
+            if (tipo == 4)
+            {
+                EndGameMSG.Content = msg4;
+            }
         }
 
         private void BTInicio_Click(object sender, RoutedEventArgs e)
@@ -74,8 +58,11 @@ namespace Campo_Minado
         private void VoltaInicio()
         {
             MainWindow menuIniciar = new MainWindow();
+
             this.Close();
+
             menuIniciar.Show();
+
             this.view.Close();
         }
 

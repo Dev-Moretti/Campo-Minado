@@ -18,7 +18,7 @@ namespace Campo_Minado
         private string NomePlayer;
         private TimeSpan TempoBomba;
         private long TempoJogou;
-
+        private long TempoDeJogoScore;
 
         public CampoMinado(int campo, DIFICULDADE dificuldade, string nomePlayer, TimeSpan tempoBomba)
         {
@@ -195,21 +195,6 @@ namespace Campo_Minado
             return true;
         }
 
-        public string GetNomePlayer()
-        {
-            return NomePlayer;
-        }
-
-        public TimeSpan GetTempoBomba()
-        {
-            return TempoBomba; 
-        }
-
-        public DIFICULDADE GetDificuldade()
-        {
-            return Dificuldade;
-        }
-
         public void IniciarPartida()
         {
             TempoJogou = DateTime.Now.Ticks;
@@ -217,9 +202,9 @@ namespace Campo_Minado
 
         public void FinalizarPartida()
         {
-            TempoJogou = DateTime.Now.Ticks - TempoJogou; 
+            TempoDeJogoScore = DateTime.Now.Ticks - TempoJogou; 
             
-            TimeSpan time = TimeSpan.FromTicks(TempoJogou);
+            TimeSpan time = TimeSpan.FromTicks(TempoDeJogoScore);
 
             ScoreDAO scoreDao = new ScoreDAO();
 
@@ -230,7 +215,6 @@ namespace Campo_Minado
             listaScore.Add(score);
 
             scoreDao.GravarListScore(listaScore);
-
         }
 
         public TimeSpan GetTempoDecorrido()
@@ -238,7 +222,6 @@ namespace Campo_Minado
             TimeSpan time = TimeSpan.FromTicks(DateTime.Now.Ticks - TempoJogou);
 
             return TempoBomba - time;
-
         }
     }
 }
