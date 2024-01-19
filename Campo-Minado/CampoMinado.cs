@@ -217,6 +217,24 @@ namespace Campo_Minado
             scoreDao.GravarListScore(listaScore);
         }
 
+        public void FinalizaPartida2()
+        {
+            TempoDeJogoScore = DateTime.Now.Ticks - TempoJogou;
+
+            TimeSpan time = TimeSpan.FromTicks(TempoDeJogoScore);
+
+            ScoreDAO scoreDao = new ScoreDAO();
+
+            List<Score> listaScore = scoreDao.LerListaScore();
+
+            Score score = new Score(Criptografar.StringEncodeBase64(NomePlayer), Convert.ToBase64String(TempoBomba), time, Dificuldade, Campo, Bombas);
+
+            listaScore.Add(score);
+
+            MySqlDAO.GravarScore(listaScore);
+
+        }
+
         public TimeSpan GetTempoDecorrido()
         {
             TimeSpan time = TimeSpan.FromTicks(DateTime.Now.Ticks - TempoJogou);

@@ -11,10 +11,10 @@ namespace Campo_Minado
 
         private string SqlPath = "server=localhost;databese=campo_minado;user=campo_minado;password=mineCamp@25";
 
-        public void GravarScore(List<Score> score)
+        public static void GravarScore(List<Score> score)
         {
             
-
+            
 
         }
 
