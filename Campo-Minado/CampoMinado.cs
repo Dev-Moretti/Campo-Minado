@@ -217,7 +217,7 @@ namespace Campo_Minado
             scoreDao.GravarListScore(listaScore);
         }
 
-        public void FinalizaPartida2()
+        public void FinalizarPartida2()
         {
             TempoDeJogoScore = DateTime.Now.Ticks - TempoJogou;
 
@@ -227,7 +227,7 @@ namespace Campo_Minado
 
             List<Score> listaScore = scoreDao.LerListaScore();
 
-            Score score = new Score(Criptografar.StringEncodeBase64(NomePlayer), Convert.ToBase64String(TempoBomba), time, Dificuldade, Campo, Bombas);
+            Score score = new Score(Criptografar.StringEncodeBase64(NomePlayer), TempoBomba, time, Dificuldade, Campo, Bombas);
 
             listaScore.Add(score);
 

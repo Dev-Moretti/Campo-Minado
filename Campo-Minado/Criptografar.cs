@@ -12,16 +12,6 @@ namespace Campo_Minado
             return Convert.ToBase64String(bytes);
         }
 
-        public static string TimeSpanEncodeBase64(TimeSpan textoEncode)
-        {
-            byte[] bytes = 
-
-            return Convert.ToBase64String(bytes);
-        }
-
-
-
-
         public static string StringDecodeBase64(string textoDecode)
         {
             byte[] bytes = Convert.FromBase64String(textoDecode);

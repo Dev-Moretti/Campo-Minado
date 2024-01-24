@@ -319,7 +319,7 @@ namespace Campo_Minado
 
                 if (campoMinado.CheckBandeira())
                 {
-                    campoMinado.FinalizarPartida();
+                    campoMinado.FinalizarPartida2();
 
                     FinalizaGame(2);
                 }
