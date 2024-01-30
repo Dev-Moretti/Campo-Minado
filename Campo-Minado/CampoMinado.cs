@@ -223,16 +223,9 @@ namespace Campo_Minado
 
             TimeSpan time = TimeSpan.FromTicks(TempoDeJogoScore);
 
-            ScoreDAO scoreDao = new ScoreDAO();
+            MySqlDAO sqlDao = new MySqlDAO();
 
-            List<Score> listaScore = scoreDao.LerListaScore();
-
-            Score score = new Score(Criptografar.StringEncodeBase64(NomePlayer), TempoBomba, time, Dificuldade, Campo, Bombas);
-
-            listaScore.Add(score);
-
-            MySqlDAO.GravarScore(listaScore);
-
+            sqlDao.GravarScore(Criptografar.StringEncodeBase64(NomePlayer), TempoBomba, time, Dificuldade, Campo, Bombas);
         }
 
         public TimeSpan GetTempoDecorrido()

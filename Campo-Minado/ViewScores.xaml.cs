@@ -31,7 +31,7 @@ namespace Campo_Minado
         {
             InitializeComponent();
 
-            ExibeScoreOrganizado();
+            OrganizarScores();
         }
 
         private void BTVoltar_Click(object sender, RoutedEventArgs e)
@@ -43,10 +43,10 @@ namespace Campo_Minado
 
         private void BTListar_Click(object sender, RoutedEventArgs e)
         {
-            ExibeScoreOrganizado();
+            OrganizarScores();
         }
 
-        private void ExibeScoreSimples(List<Score> listScore)
+        private void ExibeScores(List<Score> listScore)
         {
             GScores.Items.Clear();
 
@@ -56,8 +56,7 @@ namespace Campo_Minado
             }
         }
 
-
-        private void ExibeScoreOrganizado()
+        private void OrganizarScores()
         {
             GScores.Items.Clear();
 
@@ -73,8 +72,7 @@ namespace Campo_Minado
 
             TimeSpan? fTempo = TempoSelecionado();
 
-            ExibeScoreSimples(score.OrdenarLista(listScore, fCampo, fDificuldade, fTempo));
-
+            ExibeScores(score.OrdenarLista(listScore, fCampo, fDificuldade, fTempo));
         }
 
         private DIFICULDADE? DificuldadeSelecionada()
